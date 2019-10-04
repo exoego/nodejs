@@ -16,7 +16,12 @@ env:
 
 script:
   - SCALAJS_VERSION="0.6.33" sbt ++$TRAVIS_SCALA_VERSION test
-  - SCALAJS_VERSION=""       sbt ++$TRAVIS_SCALA_VERSION test
+  - unset SCALAJS_VERSION
+  - if [[ $JAVA_HOME = *openjdk11* && $TRAVIS_SCALA_VERSION = 2.12.* ]]; then
+      sbt ++$TRAVIS_SCALA_VERSION clean coverage test coverageReport;
+    else
+      sbt ++$TRAVIS_SCALA_VERSION nodejs_v8/test nodejs_v10/test current/test;
+    fi
 
 install:
   - rm -rf ~/.nvm &&
