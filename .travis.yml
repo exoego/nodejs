@@ -14,9 +14,7 @@ env:
     - TRAVIS_NODE_VERSION="12.16.3"
     - TRAVIS_NODE_VERSION="10.20.1"
 
-script:
-  - SCALAJS_VERSION="0.6.33" sbt ++$TRAVIS_SCALA_VERSION test
-  - SCALAJS_VERSION=""       sbt ++$TRAVIS_SCALA_VERSION test
+script: ./script/validate.sh
 
 install:
   - rm -rf ~/.nvm &&
