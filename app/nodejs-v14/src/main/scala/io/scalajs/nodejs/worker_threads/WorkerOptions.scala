@@ -16,6 +16,8 @@ trait WorkerOptions extends js.Object {
   var workerData: js.UndefOr[js.Any]         = js.undefined
 
   @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs14)
+  var trackUnmanagedFds: js.UndefOr[Boolean] = js.undefined
+  @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs14)
   var transferList: js.UndefOr[js.Array[js.Object]] = js.undefined
 
   @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs12)

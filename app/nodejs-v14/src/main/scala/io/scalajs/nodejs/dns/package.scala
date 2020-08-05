@@ -29,34 +29,34 @@ package object dns {
   /////////////////////////////////////////////////////////////////////////////////
 
   // IPV4 addresses, default
-  val RRTYPE_A: RRType = "A"
+  final val RRTYPE_A: RRType = "A"
 
   // IPV6 addresses
-  val RRTYPE_AAAA: RRType = "AAAA"
+  final val RRTYPE_AAAA: RRType = "AAAA"
 
   // mail exchange records
-  val RRTYPE_MX: RRType = "MX"
+  final val RRTYPE_MX: RRType = "MX"
 
   // text records
-  val RRTYPE_TXT: RRType = "TXT"
+  final val RRTYPE_TXT: RRType = "TXT"
 
   // SRV records
-  val RRTYPE_SRV: RRType = "SRV"
+  final val RRTYPE_SRV: RRType = "SRV"
 
   // PTR records
-  val RRTYPE_PTR: RRType = "PTR"
+  final val RRTYPE_PTR: RRType = "PTR"
 
   // name server records
-  val RRTYPE_NS: RRType = "NS"
+  final val RRTYPE_NS: RRType = "NS"
 
   // canonical name records
-  val RRTYPE_CNAME: RRType = "CNAME"
+  final val RRTYPE_CNAME: RRType = "CNAME"
 
   // start of authority record
-  val RRTYPE_SOA: RRType = "SOA"
+  final val RRTYPE_SOA: RRType = "SOA"
 
   // name authority pointer record
-  val RRTYPE_NAPTR: RRType = "NAPTR"
+  final val RRTYPE_NAPTR: RRType = "NAPTR"
 
   /**
     * DNS Extensions

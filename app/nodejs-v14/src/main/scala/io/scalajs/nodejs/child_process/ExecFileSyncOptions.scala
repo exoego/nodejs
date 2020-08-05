@@ -30,8 +30,7 @@ trait ExecFileSyncOptions extends js.Object {
   var stdio: js.UndefOr[StdIo] = js.undefined
 
   /** Environment key-value pairs
-    *
-   */
+    */
   var env: js.UndefOr[js.Object] = js.undefined
 
   /** (Default: 'utf8')

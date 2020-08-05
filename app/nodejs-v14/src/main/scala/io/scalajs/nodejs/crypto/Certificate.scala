@@ -4,7 +4,6 @@ import io.scalajs.nodejs.buffer.Buffer
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 @js.native
 @JSImport("crypto", "Certificate")

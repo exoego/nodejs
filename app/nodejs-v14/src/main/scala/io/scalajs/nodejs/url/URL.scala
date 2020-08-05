@@ -3,19 +3,13 @@ package url
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
-/**
-  * This module has utilities for URL resolution and parsing. Call require('url') to use it.
-  * @param input The input URL to parse
-  * @param base  The base URL to resolve against if the input is not absolute.
-  * @see https://nodejs.org/api/url.html
-  */
 @js.native
 @JSImport("url", "URL")
-class URL(input: String, base: String) extends js.Object {
-  def this(input: String, base: URL) = this(input, "")
-  def this(input: String) = this(input, "")
+class URL protected () extends js.Object {
+  def this(input: String, base: String) = this()
+  def this(input: String, base: URL) = this()
+  def this(input: String) = this()
 
   /**
     * The auth property is the username and password portion of the URL, also referred to as "userinfo".

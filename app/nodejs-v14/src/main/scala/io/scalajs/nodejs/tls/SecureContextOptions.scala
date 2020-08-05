@@ -1,5 +1,6 @@
 package io.scalajs.nodejs.tls
 
+import com.thoughtworks.enableIf
 import io.scalajs.nodejs.buffer.Buffer
 import net.exoego.scalajs.types.util.Factory
 
@@ -25,4 +26,9 @@ trait SecureContextOptions extends js.Object {
   var secureOptions: js.UndefOr[Int]                               = js.undefined
   var secureProtocol: js.UndefOr[String]                           = js.undefined
   var sessionIdContext: js.UndefOr[String]                         = js.undefined
+
+  @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs14)
+  var ticketKeys: js.UndefOr[Buffer] = js.undefined
+  @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs14)
+  var sessionTimeout: js.UndefOr[Double] = js.undefined
 }

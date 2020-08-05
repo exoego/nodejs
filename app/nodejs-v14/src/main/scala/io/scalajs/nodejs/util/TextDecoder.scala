@@ -5,7 +5,7 @@ import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.typedarray.{ArrayBuffer, ArrayBufferView}
-import scala.scalajs.js.|
+
 @js.native
 @JSImport("util", "TextDecoder")
 class TextDecoder() extends js.Object {

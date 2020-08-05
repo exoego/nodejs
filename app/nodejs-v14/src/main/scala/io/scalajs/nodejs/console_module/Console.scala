@@ -40,7 +40,7 @@ class Console protected () extends js.Object {
     * @param message The error message
     * @param optionalParams The arguments passed to `message`
     */
-  def assert(value: js.Any, message: String, optionalParams: Any*): Unit = js.native
+  def assert(value: Any, message: String, optionalParams: Any*): Unit = js.native
 
   /**
     * A simple assertion test that verifies whether `value` is truthy.
@@ -49,7 +49,7 @@ class Console protected () extends js.Object {
     * @param value The value tested for being truthy
     * @param optionalParams The arguments passed to the error message
     */
-  def assert(value: js.Any, optionalParams: Any*): Unit = js.native
+  def assert(value: Any, optionalParams: Any*): Unit = js.native
 
   /**
     * When `stdout` is a TTY, calling `console.clear()` will attempt to clear the TTY.
@@ -77,23 +77,23 @@ class Console protected () extends js.Object {
 
   /**
     * The `console.debug()` function is an alias for `console.log()`.
-    * @param message
-    * @param optionalParams
     */
-  def debug(message: js.Any, optionalParams: Any*): Unit = js.native
+  def debug(data: Any, arg1: Any, args: Any*): Unit = js.native
+  def debug(data: Any): Unit                        = js.native
+  def debug(): Unit                                 = js.native
 
   /**
     * Uses [[io.scalajs.nodejs.util.Util.inspect()]] on `obj` and prints the resulting string to `stdout`.
     * This function bypasses any custom `inspect()` function defined on `obj`.
     */
-  def dir(obj: js.Any, options: ConsoleDirOptions): Unit = js.native
-  def dir(obj: js.Any): Unit                             = js.native
+  def dir(obj: Any, options: ConsoleDirOptions): Unit = js.native
+  def dir(obj: Any): Unit                             = js.native
 
   /**
     * This method calls[[log()]] passing it the arguments received.
     * Please note that this method does not produce any XML formatting
     */
-  def dirxml(data: js.Any*): Unit = js.native
+  def dirxml(data: Any*): Unit = js.native
 
   /**
     * Prints to `stderr` with newline.
@@ -103,11 +103,10 @@ class Console protected () extends js.Object {
     * If formatting elements (e.g. `%d`) are not found in the first string then[[io.scalajs.nodejs.util.Util.inspect()]]
     * is called on each argument and the resulting string values are concatenated. See [[io.scalajs.nodejs.util.Util.format()]]
     * for more information.
-    *
-    * @param message
-    * @param optionalParams
     */
-  def error(message: js.Any, optionalParams: Any*): Unit = js.native
+  def error(data: Any, arg1: Any, args: Any*): Unit = js.native
+  def error(data: Any): Unit                        = js.native
+  def error(): Unit                                 = js.native
 
   /**
     * Increases indentation of subsequent lines by two spaces.
@@ -122,7 +121,7 @@ class Console protected () extends js.Object {
     * An alias for [[group()]]
     * @param label
     */
-  def groupCollapsed(label: js.Any*): Unit = js.native
+  def groupCollapsed(label: Any*): Unit = js.native
 
   /**
     * Decreases indentation of subsequent lines by two spaces.
@@ -132,14 +131,18 @@ class Console protected () extends js.Object {
   /**
     * The `console.info()` function is an alias for [[log()]].
     */
-  def info(message: js.Any, optionalParams: js.Any*): Unit = js.native
+  def info(data: Any, arg1: Any, args: Any*): Unit = js.native
+  def info(data: Any): Unit                        = js.native
+  def info(): Unit                                 = js.native
 
   /**
     * Prints to `stdout` with newline.
     * Multiple arguments can be passed, with the first used as the primary message and all additional used as
     * substitution values similar to `printf(3)` (the arguments are all passed to `util.format()`).
     */
-  def log(message: js.Any, optionalParams: Any*): Unit = js.native
+  def log(data: Any, arg1: Any, args: Any*): Unit = js.native
+  def log(data: Any): Unit                        = js.native
+  def log(): Unit                                 = js.native
 
   /**
     * Try to construct a table with the columns of the properties of `tabularData` (or use `properties`) and
@@ -148,8 +151,8 @@ class Console protected () extends js.Object {
     * @param tabularData
     * @param properties Alternate properties for constructing the table.
     */
-  def table(tabularData: js.Any, properties: js.Array[String]): Unit = js.native
-  def table(tabularData: js.Any): Unit                               = js.native
+  def table(tabularData: Any, properties: js.Array[String]): Unit = js.native
+  def table(tabularData: Any): Unit                               = js.native
 
   /**
     * Starts a timer that can be used to compute the duration of an operation.
@@ -170,18 +173,22 @@ class Console protected () extends js.Object {
   /**
     * Stops a timer that was previously started by calling [[time()]] and prints the result to `.stdout`.`
     */
-  def timeLog(label: String, data: js.Any*): Unit = js.native
+  def timeLog(label: String, data: Any*): Unit = js.native
 
   /**
     * Prints to `stderr` the string `'Trace: '`, followed by the [[io.scalajs.nodejs.util.Util.format()]] formatted
     * message and stack trace to the current position in the code.
     */
-  def trace(message: js.Any, optionalParams: js.Any*): Unit = js.native
+  def trace(data: Any, arg1: Any, args: Any*): Unit = js.native
+  def trace(data: Any): Unit                        = js.native
+  def trace(): Unit                                 = js.native
 
   /**
     * The `console.warn()` function is an alias for [[error()]
     */
-  def warn(message: js.Any, optionalParams: js.Any*): Unit = js.native
+  def warn(data: Any, arg1: Any, args: Any*): Unit = js.native
+  def warn(data: Any): Unit                        = js.native
+  def warn(): Unit                                 = js.native
 
   /**
     * This method does not display anything unless used in the inspector.

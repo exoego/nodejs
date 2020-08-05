@@ -6,7 +6,6 @@ import io.scalajs.nodejs.readline.Interface
 import net.exoego.scalajs.types.util.Factory
 
 import scala.scalajs.js
-import scala.scalajs.js.|
 
 /**
   * REPL Server

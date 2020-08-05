@@ -5,7 +5,7 @@ import io.scalajs.nodejs.stream.{IReadable, IWritable}
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-/**reading
+/**
   * Readline allows  of a stream (such as process.stdin) on a line-by-line basis.
   * To use this module, do require('readline').
   * Note that once you've invoked this module, your Node.js program will not terminate until you've closed the interface.

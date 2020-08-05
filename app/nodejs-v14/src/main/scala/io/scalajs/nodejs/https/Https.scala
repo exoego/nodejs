@@ -5,7 +5,6 @@ import io.scalajs.nodejs.url.URL
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 /**
   * HTTPS is the HTTP protocol over TLS/SSL. In Node.js this is implemented as a separate module.

@@ -5,7 +5,6 @@ import io.scalajs.nodejs.buffer.Buffer
 import io.scalajs.nodejs.stream.Writable
 
 import scala.scalajs.js
-import scala.scalajs.js.|
 
 /**
   * The Verify class is a utility for verifying signatures. It can be used in one of two ways:

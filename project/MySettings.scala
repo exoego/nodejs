@@ -11,7 +11,6 @@ object MySettings {
       "adapted-args",
       "nullary-unit",
       "inaccessible",
-      "nullary-override",
       "infer-any",
       "missing-interpolator",
       "doc-detached",
@@ -56,9 +55,6 @@ object MySettings {
   )
 
   lazy val commonScalaJsSettings = Seq(
-    scalacOptions ++= Seq("-P:scalajs:sjsDefinedByDefault").filter { _ =>
-      Option(System.getenv("SCALAJS_VERSION")).exists(_.startsWith("0.6."))
-    },
     scalaJSLinkerConfig ~= {
       _.withModuleKind(ModuleKind.CommonJSModule)
     },

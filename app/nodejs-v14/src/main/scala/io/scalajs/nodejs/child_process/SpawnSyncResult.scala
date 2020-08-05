@@ -6,7 +6,7 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 @Factory
-trait SpawnSyncResult {
+trait SpawnSyncResult extends js.Object {
   var pid: Int
   var output: js.Array[Output]
   var stdout: Output

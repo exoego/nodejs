@@ -4,7 +4,7 @@ import scala.scalajs.js
 import net.exoego.scalajs.types.util.Factory
 
 @Factory
-trait DiffieHellmanOptions {
+trait DiffieHellmanOptions extends js.Object {
   var privateKey: KeyObject
   var publicKey: KeyObject
 }

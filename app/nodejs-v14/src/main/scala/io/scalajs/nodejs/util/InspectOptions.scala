@@ -27,7 +27,8 @@ trait InspectOptions extends js.Object {
   var colors: js.UndefOr[Boolean] = js.undefined
 
   /** If false, then custom inspect(depth, opts) functions exported on the object being inspected
-    * will not be called. Defaults to true. */
+    * will not be called. Defaults to true.
+    */
   var customInspect: js.UndefOr[Boolean] = js.undefined
 
   /** If true, then objects and functions that are Proxy objects will be introspected to show their

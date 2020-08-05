@@ -2,7 +2,6 @@ package io.scalajs.nodejs
 package http
 
 import scala.scalajs.js
-import scala.scalajs.js.|
 
 /**
   * Node.js http.ServerResponse

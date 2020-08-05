@@ -1,7 +1,5 @@
 package io.scalajs.nodejs.tls
 
-import io.scalajs.nodejs.net
-
 import io.scalajs.nodejs.buffer.Buffer
 import io.scalajs.nodejs.{net, stream}
 import _root_.net.exoego.scalajs.types.util.Factory

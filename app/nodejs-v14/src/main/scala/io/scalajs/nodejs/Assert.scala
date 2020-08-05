@@ -2,7 +2,6 @@ package io.scalajs.nodejs
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 /**
   * The assert module provides a simple set of assertion tests that can be used to test invariants. The module is

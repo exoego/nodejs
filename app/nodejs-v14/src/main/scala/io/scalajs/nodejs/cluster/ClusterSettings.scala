@@ -35,7 +35,7 @@ trait ClusterSettings extends js.Object {
     * From Node.js v13.2.0, v12.16.0.
     */
   @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs12)
-  var serialization: String = js.native
+  var serialization: js.UndefOr[String] = js.native
 
   /** <Number> Sets the user identity of the process. (See setuid(2).) */
   var uid: UID = js.native

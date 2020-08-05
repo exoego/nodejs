@@ -6,7 +6,6 @@ import io.scalajs.util.PromiseHelper.promiseWithError0
 import scala.concurrent.Future
 import scala.scalajs.js
 import scala.scalajs.js.typedarray.Uint8Array
-import scala.scalajs.js.|
 
 package object stream {
   type ErrorCallback = js.Function1[io.scalajs.nodejs.Error, Any]

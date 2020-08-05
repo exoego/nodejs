@@ -167,7 +167,7 @@ object EventEmitter extends js.Object {
 
   /** Change the default captureRejections option on all new EventEmitter objects.
     *
-   * experimental!
+    * experimental!
     */
   @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs12)
   var captureRejections: Boolean = js.native

@@ -7,7 +7,6 @@ import scala.scalajs.js.JavaScriptException
 
 /**
   * File System (Fs) Tests
-  *
   */
 class FsClassesTest extends AnyFunSpec {
   describe("ReadStream") {

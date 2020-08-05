@@ -5,7 +5,6 @@ import io.scalajs.nodejs.events.IEventEmitter
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.typedarray.{DataView, TypedArray}
-import scala.scalajs.js.|
 
 /**
   * To use this module, do require('string_decoder'). StringDecoder decodes a buffer to a string. It is a simple

@@ -93,16 +93,16 @@ trait TLSSocketOptions extends js.Object {
     */
   var requestCert: js.UndefOr[Boolean] = js.undefined
 
-  /** Optional, see tls.createServer()  */
+  /** Optional, see tls.createServer() */
   var rejectUnauthorized: js.UndefOr[Boolean] = js.undefined
 
-  /** Optional, see tls.createServer()  */
+  /** Optional, see tls.createServer() */
   var NPNProtocols: js.UndefOr[Boolean] = js.undefined
 
-  /** Optional, see tls.createServer()  */
+  /** Optional, see tls.createServer() */
   var ALPNProtocols: js.UndefOr[ALPNProtocols] = js.undefined
 
-  /** Optional, see tls.createServer()  */
+  /** Optional, see tls.createServer() */
   var SNICallback: js.UndefOr[js.Function2[String, js.Function, Any]] = js.undefined
 
   /** An optional Buffer instance containing a TLS session. */

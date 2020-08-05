@@ -14,13 +14,13 @@ trait ForkOptions extends js.Object {
     */
   var detached: js.UndefOr[Boolean] = js.undefined
 
-  /** Environment key-value pairs  */
+  /** Environment key-value pairs */
   var env: js.UndefOr[js.Object] = js.undefined
 
   /** Executable used to create the child process */
   var execPath: js.UndefOr[String] = js.undefined
 
-  /** List of string arguments passed to the executable (Default: process.execArgv)  */
+  /** List of string arguments passed to the executable (Default: process.execArgv) */
   var execArgv: js.UndefOr[Array[String]] = js.undefined
 
   /** From Node.js v13.2.0, v12.16.0.
@@ -42,7 +42,7 @@ trait ForkOptions extends js.Object {
     */
   var stdio: js.UndefOr[String | Array[String]] = js.undefined
 
-  /** Sets the user identity of the process. (See setuid(2).)  */
+  /** Sets the user identity of the process. (See setuid(2).) */
   var uid: js.UndefOr[UID] = js.undefined
 
   /** Sets the group identity of the process. (See setgid(2).) */

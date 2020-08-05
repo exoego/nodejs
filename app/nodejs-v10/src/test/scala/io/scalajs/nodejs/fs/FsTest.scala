@@ -8,7 +8,6 @@ import org.scalatest.funspec.AsyncFunSpec
 
 /**
   * File System (Fs) Tests
-  *
   */
 class FsTest extends AsyncFunSpec {
   override implicit val executionContext = ExecutionContext.Implicits.global
@@ -34,7 +33,7 @@ class FsTest extends AsyncFunSpec {
           "Hello",
           error => {
             if (isDefined(error)) {
-              promise.failure(error.toException)
+              promise.failure(error.toException())
             }
           }
         )

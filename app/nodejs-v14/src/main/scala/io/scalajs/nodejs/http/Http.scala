@@ -5,7 +5,6 @@ import io.scalajs.nodejs.url.URL
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 /**
   * To use the HTTP server and client one must require('http').

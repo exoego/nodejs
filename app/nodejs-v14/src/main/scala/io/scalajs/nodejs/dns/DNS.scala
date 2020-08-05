@@ -4,7 +4,6 @@ import com.thoughtworks.enableIf
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
-import scala.scalajs.js.|
 
 /**
   * The dns module contains functions belonging to two different categories:

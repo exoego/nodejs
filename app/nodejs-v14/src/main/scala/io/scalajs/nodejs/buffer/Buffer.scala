@@ -5,7 +5,6 @@ import com.thoughtworks.enableIf
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSBracketAccess, JSGlobal, JSImport}
 import scala.scalajs.js.typedarray.{ArrayBuffer, DataView, TypedArray, Uint8Array}
-import scala.scalajs.js.|
 
 /**
   * @see [[https://nodejs.org/api/buffer.html]]
@@ -924,12 +923,11 @@ object Buffer extends js.Object {
 
   /**
     * Returns a new `Buffer` which is the result of concatenating all the `Buffer`s in the `list` together.
-
+    *
     * @param list        List of [[Buffer]] or [[Uint8Array]] instances to concat.
     * @param totalLength  Total length of the `Buffer` instances in `list` when concatenated.
     *
     * @see [[https://nodejs.org/api/buffer.html#buffer_class_method_buffer_concat_list_totallength]]
-    *
     */
   def concat[B <: Uint8Array](list: js.Array[B], totalLength: Int): Buffer = js.native
   def concat[B <: Uint8Array](list: js.Array[B]): Buffer                   = js.native

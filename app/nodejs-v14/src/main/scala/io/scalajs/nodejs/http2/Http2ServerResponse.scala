@@ -1,6 +1,5 @@
 package io.scalajs.nodejs.http2
 
-import io.scalajs.nodejs.buffer.Buffer
 import io.scalajs.nodejs.{net, tls, stream}
 
 import scala.scalajs.js

@@ -121,8 +121,6 @@ trait Crypto extends js.Object {
     * will display the available digest algorithms.
     * @param algorithm the given algorithm (e.g. 'sha256', 'sha512')
     */
-  @deprecated("Use CreateHashOptions instead.", "v0.12.0")
-  def createHash(algorithm: String, options: TransformOptions): Hash  = js.native
   def createHash(algorithm: String, options: CreateHashOptions): Hash = js.native
   def createHash(algorithm: String): Hash                             = js.native
 

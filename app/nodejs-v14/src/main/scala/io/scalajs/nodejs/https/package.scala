@@ -1,13 +1,11 @@
 package io.scalajs.nodejs
 
 import com.thoughtworks.enableIf
-import io.scalajs.nodejs.buffer.Buffer
 import io.scalajs.nodejs.http.{RequestOptions, ServerResponse}
 import io.scalajs.util.PromiseHelper._
 import io.scalajs.nodejs.url.URL
 
 import scala.concurrent.Future
-import scala.scalajs.js.|
 
 /**
   * https package object
@@ -63,6 +61,7 @@ package object https {
 
   implicit final class AgentExtensions[T <: Agent](private val instance: T) extends AnyVal {
     @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs12)
-    @inline def onKeylog(handler: (Buffer, tls.TLSSocket) => Any): T = instance.on("keylog", handler)
+    @inline def onKeylog(handler: (io.scalajs.nodejs.buffer.Buffer, tls.TLSSocket) => Any): T =
+      instance.on("keylog", handler)
   }
 }
