@@ -9,8 +9,10 @@ import scala.scalajs.runtime.wrapJavaScriptException
 object PromiseHelper {
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback0(f: js.Function0[Any] => Unit): Future[Unit] = {
@@ -20,8 +22,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback1[A](f: js.Function1[A, Any] => Unit): Future[A] = {
@@ -31,8 +35,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback2[A, B](f: js.Function2[A, B, Any] => Unit): Future[(A, B)] = {
@@ -42,8 +48,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback3[A, B, C](f: js.Function3[A, B, C, Any] => Unit): Future[(A, B, C)] = {
@@ -53,8 +61,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback4[A, B, C, D](f: js.Function4[A, B, C, D, Any] => Unit): Future[(A, B, C, D)] = {
@@ -64,8 +74,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback5[A, B, C, D, E](f: js.Function5[A, B, C, D, E, Any] => Unit): Future[(A, B, C, D, E)] = {
@@ -75,8 +87,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback6[A, B, C, D, E, F](f: js.Function6[A, B, C, D, E, F, Any] => Unit): Future[(A, B, C, D, E, F)] = {
@@ -86,8 +100,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback7[A, B, C, D, E, F, G](
@@ -99,8 +115,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseCallback8[A, B, C, D, E, F, G, H](
@@ -111,11 +129,13 @@ object PromiseHelper {
     task.future
   }
 
-  /** Converts a JavaScript-style callback to a Scala.js promise.
-    * Promise always success and contains true if callback does not receive error, otherwise contains false.
+  /** Converts a JavaScript-style callback to a Scala.js promise. Promise always success and contains true if callback
+    * does not receive error, otherwise contains false.
     *
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseWithErrorAsBoolean[Z](f: js.Function1[Z, Any] => Unit): Future[Boolean] = {
@@ -125,8 +145,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseWithError0[Z](f: js.Function1[Z, Any] => Unit): Future[Unit] = {
@@ -138,8 +160,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseWithError1[Z, A](f: js.Function2[Z, A, Any] => Unit): Future[A] = {
@@ -151,8 +175,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseWithError2[Z, A, B](f: js.Function3[Z, A, B, Any] => Unit): Future[(A, B)] = {
@@ -164,8 +190,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseWithError3[Z, A, B, C](f: js.Function4[Z, A, B, C, Any] => Unit): Future[(A, B, C)] = {
@@ -177,8 +205,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseWithError4[Z, A, B, C, D](f: js.Function5[Z, A, B, C, D, Any] => Unit): Future[(A, B, C, D)] = {
@@ -191,8 +221,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseWithError5[Z, A, B, C, D, E](f: js.Function6[Z, A, B, C, D, E, Any] => Unit): Future[(A, B, C, D, E)] = {
@@ -205,8 +237,10 @@ object PromiseHelper {
   }
 
   /** Converts a JavaScript-style callback to a Scala.js promise
-    * @param f the given callback function
-    * @return a Scala.js promise
+    * @param f
+    *   the given callback function
+    * @return
+    *   a Scala.js promise
     */
   @inline
   def promiseWithError6[Z, A, B, C, D, E, F](

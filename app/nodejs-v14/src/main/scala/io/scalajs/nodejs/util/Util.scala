@@ -3,32 +3,35 @@ package io.scalajs.nodejs.util
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-/** These functions are in the module 'util'. Use require('util') to access them.
-  * The util module is primarily designed to support the needs of Node.js's internal APIs.
-  * Many of these utilities are useful for your own programs. If you find that these functions
-  * are lacking for your purposes, however, you are encouraged to write your own utilities.
-  * We are not interested in any future additions to the util module that are unnecessary
-  * for Node.js's internal functionality.
-  * @see https://nodejs.org/api/util.html
+/** These functions are in the module 'util'. Use require('util') to access them. The util module is primarily designed
+  * to support the needs of Node.js's internal APIs. Many of these utilities are useful for your own programs. If you
+  * find that these functions are lacking for your purposes, however, you are encouraged to write your own utilities. We
+  * are not interested in any future additions to the util module that are unnecessary for Node.js's internal
+  * functionality.
+  * @see
+  *   https://nodejs.org/api/util.html
   */
 @js.native
 trait Util extends js.Object {
 
   /** This is used to create a function which conditionally writes to stderr based on the existence of a NODE_DEBUG
-    * environment variable. If the section name appears in that environment variable, then the returned function will
-    * be similar to console.error(). If not, then the returned function is a no-op.
-    * @example util.debuglog(section)
+    * environment variable. If the section name appears in that environment variable, then the returned function will be
+    * similar to console.error(). If not, then the returned function is a no-op.
+    * @example
+    *   util.debuglog(section)
     */
   def debuglog(section: String): js.Function = js.native
 
   /** Marks that a method should not be used any more.
-    * @example util.deprecate(function, message)
+    * @example
+    *   util.deprecate(function, message)
     */
   def deprecate(function: js.Function, message: String, code: String): js.Any = js.native
   def deprecate(function: js.Function, message: String): js.Any               = js.native
 
   /** Returns a formatted string using the first argument as a printf-like format.
-    * @example util.format(format[, ...])
+    * @example
+    *   util.format(format[, ...])
     */
   def format(format: String, args: js.Any*): String = js.native
 
@@ -36,11 +39,12 @@ trait Util extends js.Object {
 
   def getSystemErrorName(err: Int): String = js.native
 
-  /** Inherit the prototype methods from one constructor into another. The prototype of constructor will be set to a
-    * new object created from superConstructor.
+  /** Inherit the prototype methods from one constructor into another. The prototype of constructor will be set to a new
+    * object created from superConstructor.
     *
     * As an additional convenience, superConstructor will be accessible through the constructor.super_ property.
-    * @example util.inherits(constructor, superConstructor)
+    * @example
+    *   util.inherits(constructor, superConstructor)
     */
   def inherits(constructor: js.Any, superConstructor: js.Any): js.Any = js.native
 

@@ -2,17 +2,18 @@ package io.scalajs.nodejs.timers
 
 import scala.scalajs.js
 
-/** If a timer was previously unref()d, then ref() can be called to explicitly request the timer hold the
-  * program open. If the timer is already refd calling ref again will have no effect.
+/** If a timer was previously unref()d, then ref() can be called to explicitly request the timer hold the program open.
+  * If the timer is already refd calling ref again will have no effect.
   */
 @js.native
 trait Ref extends js.Object {
 
-  /** If a timer was previously unref()d, then ref() can be called to explicitly request the timer hold the
-    * program open. If the timer is already refd calling ref again will have no effect.
+  /** If a timer was previously unref()d, then ref() can be called to explicitly request the timer hold the program
+    * open. If the timer is already refd calling ref again will have no effect.
     *
     * Returns the timer.
-    * @example ref()
+    * @example
+    *   ref()
     */
   def apply(): Timer = js.native
 }

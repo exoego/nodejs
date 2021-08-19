@@ -38,7 +38,8 @@ trait IStats[TInt, TFloat] extends js.Object {
 
   def atimeMs: TFloat = js.native
 
-  /** "Modified Time" - Time when file data last modified. Changed by the mknod(2), utimes(2), and write(2) system calls.
+  /** "Modified Time" - Time when file data last modified. Changed by the mknod(2), utimes(2), and write(2) system
+    * calls.
     */
   def mtime: js.Date = js.native
 
@@ -52,9 +53,9 @@ trait IStats[TInt, TFloat] extends js.Object {
   def ctimeMs: TFloat = js.native
 
   /** "Birth Time" - Time of file creation. Set once when the file is created. On filesystems where birthtime is not
-    * available, this field may instead hold either the ctime or 1970-01-01T00:00Z (ie, unix epoch timestamp 0).
-    * Note that this value may be greater than atime or mtime in this case. On Darwin and other FreeBSD variants,
-    * also set if the atime is explicitly set to an earlier value than the current birthtime using the utimes(2) system call.
+    * available, this field may instead hold either the ctime or 1970-01-01T00:00Z (ie, unix epoch timestamp 0). Note
+    * that this value may be greater than atime or mtime in this case. On Darwin and other FreeBSD variants, also set if
+    * the atime is explicitly set to an earlier value than the current birthtime using the utimes(2) system call.
     */
   def birthtime: js.Date = js.native
 
@@ -104,7 +105,7 @@ trait IStats[TInt, TFloat] extends js.Object {
   *     mtime: Mon, 10 Oct 2011 23:24:11 GMT,
   *     ctime: Mon, 10 Oct 2011 23:24:11 GMT,
   *     birthtime: Mon, 10 Oct 2011 23:24:11 GMT
-  *  }
+  *   }
   * }}}
   * @since 0.1.21
   */
@@ -116,30 +117,30 @@ trait Stats extends IStats[Int, Double]
   *
   * @example
   * {{{
-  *  BigIntStats {
-  *    dev: 2114n,
-  *    ino: 48064969n,
-  *    mode: 33188n,
-  *    nlink: 1n,
-  *    uid: 85n,
-  *    gid: 100n,
-  *    rdev: 0n,
-  *    size: 527n,
-  *    blksize: 4096n,
-  *    blocks: 8n,
-  *    atimeMs: 1318289051000n,
-  *    mtimeMs: 1318289051000n,
-  *    ctimeMs: 1318289051000n,
-  *    birthtimeMs: 1318289051000n,
-  *    atimeNs: 1318289051000000000n,
-  *    mtimeNs: 1318289051000000000n,
-  *    ctimeNs: 1318289051000000000n,
-  *    birthtimeNs: 1318289051000000000n,
-  *    atime: Mon, 10 Oct 2011 23:24:11 GMT,
-  *    mtime: Mon, 10 Oct 2011 23:24:11 GMT,
-  *    ctime: Mon, 10 Oct 2011 23:24:11 GMT,
-  *    birthtime: Mon, 10 Oct 2011 23:24:11 GMT
-  *  }
+  *   BigIntStats {
+  *     dev: 2114n,
+  *     ino: 48064969n,
+  *     mode: 33188n,
+  *     nlink: 1n,
+  *     uid: 85n,
+  *     gid: 100n,
+  *     rdev: 0n,
+  *     size: 527n,
+  *     blksize: 4096n,
+  *     blocks: 8n,
+  *     atimeMs: 1318289051000n,
+  *     mtimeMs: 1318289051000n,
+  *     ctimeMs: 1318289051000n,
+  *     birthtimeMs: 1318289051000n,
+  *     atimeNs: 1318289051000000000n,
+  *     mtimeNs: 1318289051000000000n,
+  *     ctimeNs: 1318289051000000000n,
+  *     birthtimeNs: 1318289051000000000n,
+  *     atime: Mon, 10 Oct 2011 23:24:11 GMT,
+  *     mtime: Mon, 10 Oct 2011 23:24:11 GMT,
+  *     ctime: Mon, 10 Oct 2011 23:24:11 GMT,
+  *     birthtime: Mon, 10 Oct 2011 23:24:11 GMT
+  *   }
   * }}}
   * @since 0.1.21
   */

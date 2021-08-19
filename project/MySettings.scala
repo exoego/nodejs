@@ -71,7 +71,7 @@ object MySettings {
     libraryDependencies ++= {
       CrossVersion.partialVersion(scalaVersion.value) match {
         case Some((2, n)) if n >= 13 => Nil
-        case _                       => compilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full) :: Nil
+        case _ => compilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full) :: Nil
       }
     }
   )
@@ -79,8 +79,8 @@ object MySettings {
   lazy val nonPublishingSetting = Seq(
     skip in publish := true,
     publishArtifact := false,
-    publish := {},
-    publishLocal := {}
+    publish         := {},
+    publishLocal    := {}
   )
 
   lazy val publishingSettings = Seq(
@@ -100,11 +100,11 @@ object MySettings {
         url = url("https://www.exoego.net")
       )
     ),
-    publishMavenStyle := true,
-    publishArtifact in Test := false,
+    publishMavenStyle                        := true,
+    publishArtifact in Test                  := false,
     publishArtifact in (Compile, packageDoc) := true,
     publishArtifact in (Compile, packageSrc) := true,
-    publishArtifact in packageDoc := true,
+    publishArtifact in packageDoc            := true,
     pomIncludeRepository := { _ =>
       false
     },
@@ -114,8 +114,8 @@ object MySettings {
       else
         Opts.resolver.sonatypeStaging
     ),
-    publishConfiguration := publishConfiguration.value.withOverwrite(false),
-    publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true),
+    publishConfiguration        := publishConfiguration.value.withOverwrite(false),
+    publishLocalConfiguration   := publishLocalConfiguration.value.withOverwrite(true),
     releaseIgnoreUntrackedFiles := true,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,

@@ -8,9 +8,9 @@ import scala.scalajs.js.|
 @js.native
 trait SystemError extends Error {
 
-  /** The error.errno property is a number or a string. The number is a negative value which corresponds
-    * to the error code defined in libuv Error handling. See uv-errno.h header file (deps/uv/include/uv-errno.h
-    * in the Node.js source tree) for details. In case of a string, it is the same as error.code.
+  /** The error.errno property is a number or a string. The number is a negative value which corresponds to the error
+    * code defined in libuv Error handling. See uv-errno.h header file (deps/uv/include/uv-errno.h in the Node.js source
+    * tree) for details. In case of a string, it is the same as error.code.
     */
   val errno: String | Int = js.native
 
@@ -18,18 +18,18 @@ trait SystemError extends Error {
     */
   val syscall: String = js.native
 
-  /** When present (e.g. in fs or child_process), the error.path property is a string containing
-    * a relevant invalid pathname.
+  /** When present (e.g. in fs or child_process), the error.path property is a string containing a relevant invalid
+    * pathname.
     */
   val path: String = js.native
 
-  /** When present (e.g. in net or dgram), the error.address property is a string describing the address
-    * to which the connection failed.
+  /** When present (e.g. in net or dgram), the error.address property is a string describing the address to which the
+    * connection failed.
     */
   val address: String = js.native
 
-  /** When present (e.g. in net or dgram), the error.port property is a number representing the connection's
-    * port that is not available.
+  /** When present (e.g. in net or dgram), the error.port property is a number representing the connection's port that
+    * is not available.
     */
   val port: Int = js.native
 

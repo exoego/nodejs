@@ -17,8 +17,10 @@ package object buffer {
 
     /** Syntactic sugar for concatenating a buffer
       *
-      * @param aBuffer another buffer
-      * @return a new buffer with the concatenated contents of both buffers
+      * @param aBuffer
+      *   another buffer
+      * @return
+      *   a new buffer with the concatenated contents of both buffers
       */
     @inline
     def +(aBuffer: Buffer): Buffer = Buffer.concat(js.Array(buffer, aBuffer))
@@ -31,43 +33,50 @@ package object buffer {
 
     /** Returns the hex-formatted string
       *
-      * @return the hex-formatted string
+      * @return
+      *   the hex-formatted string
       */
     @inline
     def toHexString: String =
       js.Iterator.IteratorOps(buffer.entries()).toIterator.flatMap(_.lastOption).map(n => f"$n%02x").mkString
   }
 
-  /** Re-encodes the given `Buffer` or `Uint8Array` instance from one character encoding to another.
-    * Returns a new `Buffer` instance.
+  /** Re-encodes the given `Buffer` or `Uint8Array` instance from one character encoding to another. Returns a new
+    * `Buffer` instance.
     *
     * Throws if the `fromEnc` or `toEnc` specify invalid character encodings or if conversion from `fromEnc` to `toEnc``
     * is not permitted.
     *
     * Encodings supported by `buffer.transcode()` are: 'ascii', 'utf8', 'utf16le', 'ucs2', 'latin1', and 'binary'.
     *
-    * The transcoding process will use substitution characters if a given byte sequence cannot be adequately
-    * represented in the target encoding.
+    * The transcoding process will use substitution characters if a given byte sequence cannot be adequately represented
+    * in the target encoding.
     *
-    * @param source  A Buffer instance
-    * @param fromEnc The current encoding
-    * @param toEnc   To target encoding
-    * @return a new Buffer instance.
-    * @see [[https://nodejs.org/api/buffer.html#buffer_buffer_transcode_source_fromenc_toenc]]
+    * @param source
+    *   A Buffer instance
+    * @param fromEnc
+    *   The current encoding
+    * @param toEnc
+    *   To target encoding
+    * @return
+    *   a new Buffer instance.
+    * @see
+    *   [[https://nodejs.org/api/buffer.html#buffer_buffer_transcode_source_fromenc_toenc]]
     */
   def transcode(source: Uint8Array, fromEnc: String, toEnc: String): Buffer =
     BufferNamespace.transcode(source, fromEnc, toEnc)
 
-  /** Returns the maximum number of bytes that will be returned when buf.inspect() is called.
-    * This can be overridden by user modules. See util.inspect() for more details on buf.inspect() behavior.
+  /** Returns the maximum number of bytes that will be returned when buf.inspect() is called. This can be overridden by
+    * user modules. See util.inspect() for more details on buf.inspect() behavior.
     *
-    * Note that this is a property on the buffer module returned by require('buffer'), not on the
-    * Buffer global or a Buffer instance.
+    * Note that this is a property on the buffer module returned by require('buffer'), not on the Buffer global or a
+    * Buffer instance.
     */
   val INSPECT_MAX_BYTES: UID = BufferNamespace.INSPECT_MAX_BYTES
 
   /** On 32-bit architectures, this value is (2^30)-1 (~1GB). On 64-bit architectures, this value is (2^31)-1 (~2GB).F
-    * Note that this is a property on the buffer module returned by require('buffer'), not on the Buffer global or a Buffer instance.
+    * Note that this is a property on the buffer module returned by require('buffer'), not on the Buffer global or a
+    * Buffer instance.
     */
   val kMaxLength: Double = BufferNamespace.kMaxLength
 
@@ -85,8 +94,8 @@ package object buffer {
 
     /** The largest size allowed for a single `Buffer` instance.
       *
-      * On 32-bit architectures, this value is `(2^30)-1` (~1GB).
-      * On 64-bit architectures, this value is `(2^31)-1` (~2GB).
+      * On 32-bit architectures, this value is `(2^30)-1` (~1GB). On 64-bit architectures, this value is `(2^31)-1`
+      * (~2GB).
       */
     val MAX_LENGTH: Double = js.native
 

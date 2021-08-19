@@ -4,7 +4,8 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
 /** Query String
-  * @see https://nodejs.org/api/querystring.html
+  * @see
+  *   https://nodejs.org/api/querystring.html
   */
 @js.native
 @JSImport("querystring", JSImport.Namespace)
@@ -15,35 +16,45 @@ object QueryString extends QueryString
 @js.native
 trait QueryString extends js.Object {
 
-  /** The querystring.escape() method performs URL percent-encoding on the given str in a manner that is optimized
-    * for the specific requirements of URL query strings.
+  /** The querystring.escape() method performs URL percent-encoding on the given str in a manner that is optimized for
+    * the specific requirements of URL query strings.
     *
     * The querystring.escape() method is used by querystring.stringify() and is generally not expected to be used
     * directly. It is exported primarily to allow application code to provide a replacement percent-encoding
     * implementation if necessary by assigning querystring.escape to an alternative function.
-    * @param str the given string to escape
+    * @param str
+    *   the given string to escape
     * @return
     */
   def escape(str: String): String = js.native
 
   /** The querystring.parse() method parses a URL query string (str) into a collection of key and value pairs.
-    * @param str     The URL query string to parse
-    * @param sep     The substring used to delimit key and value pairs in the query string. Defaults to '&'.
-    * @param eq      The substring used to delimit keys and values in the query string. Defaults to '='.
-    * @param options The given [[QueryDecodeOptions options]]
-    * @return a mapping of the key-value pairs
+    * @param str
+    *   The URL query string to parse
+    * @param sep
+    *   The substring used to delimit key and value pairs in the query string. Defaults to '&'.
+    * @param eq
+    *   The substring used to delimit keys and values in the query string. Defaults to '='.
+    * @param options
+    *   The given [[QueryDecodeOptions options]]
+    * @return
+    *   a mapping of the key-value pairs
     */
   def parse(str: String, sep: String, eq: String, options: QueryDecodeOptions): js.Dictionary[String] = js.native
   def parse(str: String, sep: String, eq: String): js.Dictionary[String]                              = js.native
   def parse(str: String, sep: String): js.Dictionary[String]                                          = js.native
   def parse(str: String): js.Dictionary[String]                                                       = js.native
 
-  /** The querystring.stringify() method produces a URL query string from a given obj by iterating through the
-    * object's "own properties".
-    * @param obj     The object to serialize into a URL query string
-    * @param sep     The substring used to delimit key and value pairs in the query string. Defaults to '&'.
-    * @param eq      The substring used to delimit keys and values in the query string. Defaults to '='.
-    * @param options The given [[QueryEncodeOptions options]]
+  /** The querystring.stringify() method produces a URL query string from a given obj by iterating through the object's
+    * "own properties".
+    * @param obj
+    *   The object to serialize into a URL query string
+    * @param sep
+    *   The substring used to delimit key and value pairs in the query string. Defaults to '&'.
+    * @param eq
+    *   The substring used to delimit keys and values in the query string. Defaults to '='.
+    * @param options
+    *   The given [[QueryEncodeOptions options]]
     */
   def stringify(obj: js.Any, sep: String, eq: String, options: QueryEncodeOptions): String = js.native
   def stringify(obj: js.Any, sep: String, eq: String): String                              = js.native
@@ -52,13 +63,14 @@ trait QueryString extends js.Object {
 
   /** The querystring.unescape() method performs decoding of URL percent-encoded characters on the given str.
     *
-    * The querystring.unescape() method is used by querystring.parse() and is generally not expected to be used directly.
-    * It is exported primarily to allow application code to provide a replacement decoding implementation if necessary
-    * by assigning querystring.unescape to an alternative function.
+    * The querystring.unescape() method is used by querystring.parse() and is generally not expected to be used
+    * directly. It is exported primarily to allow application code to provide a replacement decoding implementation if
+    * necessary by assigning querystring.unescape to an alternative function.
     *
     * By default, the querystring.unescape() method will attempt to use the JavaScript built-in decodeURIComponent()
     * method to decode. If that fails, a safer equivalent that does not throw on malformed URLs will be used.
-    * @param str the given string to unescape
+    * @param str
+    *   the given string to unescape
     * @return
     */
   def unescape(str: String): String = js.native

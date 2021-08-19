@@ -22,8 +22,8 @@ trait Worker extends IEventEmitter {
     */
   def exitedAfterDisconnect: js.UndefOr[Boolean] = js.native
 
-  /** Each new worker is given its own unique id, this id is stored in the id.
-    * While a worker is alive, this is the key that indexes it in cluster.workers
+  /** Each new worker is given its own unique id, this id is stored in the id. While a worker is alive, this is the key
+    * that indexes it in cluster.workers
     */
   def id: Int = js.native
 
@@ -42,12 +42,12 @@ trait Worker extends IEventEmitter {
   /** In a worker, this function will close all servers, wait for the 'close' event on those servers, and then
     * disconnect the IPC channel.
     *
-    * In the master, an internal message is sent to the worker causing it to call .disconnect() on itself.
-    * Causes .exitedAfterDisconnect to be set.
+    * In the master, an internal message is sent to the worker causing it to call .disconnect() on itself. Causes
+    * .exitedAfterDisconnect to be set.
     *
     * Note that after a server is closed, it will no longer accept new connections, but connections may be accepted by
-    * any other listening worker. Existing connections will be allowed to close as usual. When no more connections exist,
-    * see server.close(), the IPC channel to the worker will close allowing it to die gracefully.
+    * any other listening worker. Existing connections will be allowed to close as usual. When no more connections
+    * exist, see server.close(), the IPC channel to the worker will close allowing it to die gracefully.
     *
     * The above applies only to server connections, client connections are not automatically closed by workers, and
     * disconnect does not wait for them to close before exiting.
@@ -60,8 +60,8 @@ trait Worker extends IEventEmitter {
     */
   def disconnect(): Unit = js.native
 
-  /** This function returns true if the worker is connected to its master via its IPC channel, false otherwise.
-    * A worker is connected to its master after it's been created. It is disconnected after the 'disconnect' event is emitted.
+  /** This function returns true if the worker is connected to its master via its IPC channel, false otherwise. A worker
+    * is connected to its master after it's been created. It is disconnected after the 'disconnect' event is emitted.
     */
   def isConnected(): Boolean = js.native
 
@@ -71,22 +71,25 @@ trait Worker extends IEventEmitter {
   def isDead(): Boolean = js.native
 
   /** This function will kill the worker. In the master, it does this by disconnecting the worker.process, and once
-    * disconnected, killing with signal. In the worker, it does it by disconnecting the channel, and then exiting with code 0.
+    * disconnected, killing with signal. In the worker, it does it by disconnecting the channel, and then exiting with
+    * code 0.
     *
-    * Causes .exitedAfterDisconnect to be set.
-    * This method is aliased as worker.destroy() for backwards compatibility.
+    * Causes .exitedAfterDisconnect to be set. This method is aliased as worker.destroy() for backwards compatibility.
     *
     * Note that in a worker, process.kill() exists, but it is not this function, it is kill.
-    * @param signal the name of the kill signal to send to the worker process.
-    * @example kill([signal='SIGTERM'])
+    * @param signal
+    *   the name of the kill signal to send to the worker process.
+    * @example
+    *   kill([signal='SIGTERM'])
     */
   def kill(signal: String): Unit = js.native
   def kill(): Unit               = js.native
 
-  /** Send a message to a worker or master, optionally with a handle.
-    * In the master this sends a message to a specific worker. It is identical to ChildProcess.send().
-    * In a worker this sends a message to the master. It is identical to process.send().
-    * @example worker.send(message[, sendHandle][, callback])
+  /** Send a message to a worker or master, optionally with a handle. In the master this sends a message to a specific
+    * worker. It is identical to ChildProcess.send(). In a worker this sends a message to the master. It is identical to
+    * process.send().
+    * @example
+    *   worker.send(message[, sendHandle][, callback])
     */
   def send(message: Message, sendHandle: Handle, callback: js.Function): Unit = js.native
   def send(message: Message, callback: js.Function): Unit                     = js.native
