@@ -8,7 +8,8 @@ import scala.scalajs.js.annotation.JSImport
 
 /** The tls module provides an implementation of the Transport Layer Security (TLS) and Secure Socket Layer (SSL)
   * protocols that is built on top of OpenSSL.
-  * @see https://nodejs.org/dist/v7.6.0/docs/api/tls.html
+  * @see
+  *   https://nodejs.org/dist/v7.6.0/docs/api/tls.html
   */
 @js.native
 trait Tls extends js.Object {

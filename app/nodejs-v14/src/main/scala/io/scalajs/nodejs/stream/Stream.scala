@@ -43,8 +43,8 @@ object Stream extends js.Object {
   ): D = js.native
 }
 
-/** Custom Readable streams must call the new stream.Readable([options]) constructor and implement the readable._read() method.
-  * https://nodejs.org/api/stream.html#stream_implementing_a_readable_stream
+/** Custom Readable streams must call the new stream.Readable([options]) constructor and implement the readable._read()
+  * method. https://nodejs.org/api/stream.html#stream_implementing_a_readable_stream
   */
 @js.native
 @JSImport("stream", "Readable")
@@ -62,8 +62,8 @@ object Readable extends js.Object {
     js.native
 }
 
-/** Custom Writable streams must call the new stream.Writable([options]) constructor and pass the
-  * writable._write() and/or writable._writev() method implementations via options.
+/** Custom Writable streams must call the new stream.Writable([options]) constructor and pass the writable._write()
+  * and/or writable._writev() method implementations via options.
   * https://nodejs.org/api/stream.html#stream_implementing_a_writable_stream
   */
 @js.native
@@ -72,15 +72,14 @@ class Writable() extends IWritable {
   def this(options: WritableOptions) = this()
 }
 
-/** A "duplex" stream is one that is both Readable and Writable, such as a TCP socket connection.
-  * <p/><b>Note</b> that stream.Duplex is an abstract class designed to be extended with an underlying
-  * implementation of the stream._read(size) and stream._write(chunk, encoding, callback) methods as you
-  * would with a Readable or Writable stream class.
+/** A "duplex" stream is one that is both Readable and Writable, such as a TCP socket connection. <p/><b>Note</b> that
+  * stream.Duplex is an abstract class designed to be extended with an underlying implementation of the
+  * stream._read(size) and stream._write(chunk, encoding, callback) methods as you would with a Readable or Writable
+  * stream class.
   *
-  * Since JavaScript doesn't have multiple prototypal inheritance, this class prototypally inherits
-  * from Readable, and then parasitically from Writable. It is thus up to the user to implement both
-  * the low-level stream._read(n) method as well as the low-level stream._write(chunk, encoding, callback)
-  * method on extension duplex classes.
+  * Since JavaScript doesn't have multiple prototypal inheritance, this class prototypally inherits from Readable, and
+  * then parasitically from Writable. It is thus up to the user to implement both the low-level stream._read(n) method
+  * as well as the low-level stream._write(chunk, encoding, callback) method on extension duplex classes.
   */
 @js.native
 @JSImport("stream", "Duplex")
@@ -88,8 +87,8 @@ class Duplex() extends IDuplex {
   def this(options: DuplexOptions) = this()
 }
 
-/** Transform streams are Duplex streams where the output is in some way computed from the input.
-  * They implement both the Readable and Writable interfaces.
+/** Transform streams are Duplex streams where the output is in some way computed from the input. They implement both
+  * the Readable and Writable interfaces.
   */
 @js.native
 @JSImport("stream", "Transform")
@@ -97,17 +96,18 @@ class Transform() extends ITransform {
   def this(options: TransformOptions) = this()
 }
 
-/** This is a trivial implementation of a Transform stream that simply passes the input bytes across to the output.
-  * Its purpose is mainly for examples and testing, but there are occasionally use cases where it can come in handy
-  * as a building block for novel sorts of streams.
+/** This is a trivial implementation of a Transform stream that simply passes the input bytes across to the output. Its
+  * purpose is mainly for examples and testing, but there are occasionally use cases where it can come in handy as a
+  * building block for novel sorts of streams.
   */
 @js.native
 @JSImport("stream", "PassThrough")
 class PassThrough() extends Transform
 
-/** The Readable stream interface is the abstraction for a source of data that you are reading from.
-  * In other words, data comes out of a Readable stream.
-  * @see https://nodejs.org/api/stream.html#stream_readable_streams
+/** The Readable stream interface is the abstraction for a source of data that you are reading from. In other words,
+  * data comes out of a Readable stream.
+  * @see
+  *   https://nodejs.org/api/stream.html#stream_readable_streams
   */
 @js.native
 sealed trait IReadable extends Stream with LegacyStream {
@@ -115,51 +115,57 @@ sealed trait IReadable extends Stream with LegacyStream {
 
   /** This method returns whether or not the readable has been explicitly paused by client code (using stream.pause()
     * without a corresponding stream.resume()).
-    * @example readable.isPaused()
+    * @example
+    *   readable.isPaused()
     */
   def isPaused(): Boolean = js.native
 
-  /** This method will cause a stream in flowing mode to stop emitting 'data' events, switching out of flowing mode.
-    * Any data that becomes available will remain in the internal buffer.
-    * @example readable.pause()
+  /** This method will cause a stream in flowing mode to stop emitting 'data' events, switching out of flowing mode. Any
+    * data that becomes available will remain in the internal buffer.
+    * @example
+    *   readable.pause()
     */
   def pause(): this.type = js.native
 
-  /** This method pulls all the data out of a readable stream, and writes it to the supplied destination,
-    * automatically managing the flow so that the destination is not overwhelmed by a fast readable stream.
-    * Multiple destinations can be piped to safely.
-    * @example readable.pipe(destination[, options])
+  /** This method pulls all the data out of a readable stream, and writes it to the supplied destination, automatically
+    * managing the flow so that the destination is not overwhelmed by a fast readable stream. Multiple destinations can
+    * be piped to safely.
+    * @example
+    *   readable.pipe(destination[, options])
     */
   def pipe(destination: IWritable, options: ReadablePipeOptions): this.type = js.native
   def pipe(destination: IWritable): this.type                               = js.native
 
-  /** When chunk is a Buffer or string, the chunk of data will be added to the internal queue for users
-    * of the stream to consume. Passing chunk as null signals the end of the stream (EOF), after which
-    * no more data can be written.
+  /** When chunk is a Buffer or string, the chunk of data will be added to the internal queue for users of the stream to
+    * consume. Passing chunk as null signals the end of the stream (EOF), after which no more data can be written.
     *
-    * When the Readable is operating in paused mode, the data added with readable.push() can be read out
-    * by calling the readable.read() method when the 'readable' event is emitted.
+    * When the Readable is operating in paused mode, the data added with readable.push() can be read out by calling the
+    * readable.read() method when the 'readable' event is emitted.
     *
-    * When the Readable is operating in flowing mode, the data added with readable.push() will be delivered
-    * by emitting a 'data' event.
-    * @param chunk    the chunk of data to push into the read queue
-    * @param encoding the encoding of String chunks. Must be a valid Buffer encoding, such as 'utf8' or 'ascii'
-    * @return true if additional chunks of data may continued to be pushed; false otherwise.
+    * When the Readable is operating in flowing mode, the data added with readable.push() will be delivered by emitting
+    * a 'data' event.
+    * @param chunk
+    *   the chunk of data to push into the read queue
+    * @param encoding
+    *   the encoding of String chunks. Must be a valid Buffer encoding, such as 'utf8' or 'ascii'
+    * @return
+    *   true if additional chunks of data may continued to be pushed; false otherwise.
     */
   def push(chunk: String, encoding: String): Boolean = js.native
   def push(chunk: String): Boolean                   = js.native
 
-  /** When chunk is a Buffer or string, the chunk of data will be added to the internal queue for users
-    * of the stream to consume. Passing chunk as null signals the end of the stream (EOF), after which
-    * no more data can be written.
+  /** When chunk is a Buffer or string, the chunk of data will be added to the internal queue for users of the stream to
+    * consume. Passing chunk as null signals the end of the stream (EOF), after which no more data can be written.
     *
-    * When the Readable is operating in paused mode, the data added with readable.push() can be read out
-    * by calling the readable.read() method when the 'readable' event is emitted.
+    * When the Readable is operating in paused mode, the data added with readable.push() can be read out by calling the
+    * readable.read() method when the 'readable' event is emitted.
     *
-    * When the Readable is operating in flowing mode, the data added with readable.push() will be delivered
-    * by emitting a 'data' event.
-    * @param chunk the chunk of data to push into the read queue
-    * @return true if additional chunks of data may continued to be pushed; false otherwise.
+    * When the Readable is operating in flowing mode, the data added with readable.push() will be delivered by emitting
+    * a 'data' event.
+    * @param chunk
+    *   the chunk of data to push into the read queue
+    * @return
+    *   true if additional chunks of data may continued to be pushed; false otherwise.
     */
   def push(chunk: Uint8Array): Boolean = js.native
 
@@ -188,55 +194,54 @@ sealed trait IReadable extends Stream with LegacyStream {
   @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs12)
   def readableObjectMode: Boolean = js.native
 
-  /** This method will cause the readable stream to resume emitting 'data' events.
-    * This method will switch the stream into flowing mode. If you do not want to consume
-    * the data from a stream, but you do want to get to its 'end' event, you can call
-    * stream.resume() to open the flow of data.
-    * @example readable.resume()
+  /** This method will cause the readable stream to resume emitting 'data' events. This method will switch the stream
+    * into flowing mode. If you do not want to consume the data from a stream, but you do want to get to its 'end'
+    * event, you can call stream.resume() to open the flow of data.
+    * @example
+    *   readable.resume()
     */
   def resume(): this.type = js.native
 
-  /** Call this function to cause the stream to return strings of the specified encoding instead of Buffer objects.
-    * For example, if you do readable.setEncoding('utf8'), then the output data will be interpreted as UTF-8 data,
-    * and returned as strings. If you do readable.setEncoding('hex'), then the data will be encoded in hexadecimal
-    * string format.
-    * <p/>This properly handles multi-byte characters that would otherwise be potentially mangled if you simply pulled
-    * the Buffers directly and called buf.toString(encoding) on them. If you want to read the data as strings,
-    * always use this method.
-    * <p/>Also you can disable any encoding at all with readable.setEncoding(null). This approach is very useful
-    * if you deal with binary data or with large multi-byte strings spread out over multiple chunks.
-    * @example readable.setEncoding(encoding)
+  /** Call this function to cause the stream to return strings of the specified encoding instead of Buffer objects. For
+    * example, if you do readable.setEncoding('utf8'), then the output data will be interpreted as UTF-8 data, and
+    * returned as strings. If you do readable.setEncoding('hex'), then the data will be encoded in hexadecimal string
+    * format. <p/>This properly handles multi-byte characters that would otherwise be potentially mangled if you simply
+    * pulled the Buffers directly and called buf.toString(encoding) on them. If you want to read the data as strings,
+    * always use this method. <p/>Also you can disable any encoding at all with readable.setEncoding(null). This
+    * approach is very useful if you deal with binary data or with large multi-byte strings spread out over multiple
+    * chunks.
+    * @example
+    *   readable.setEncoding(encoding)
     */
   def setEncoding(encoding: String): this.type = js.native
 
-  /** This method will remove the hooks set up for a previous stream.pipe() call.
-    * <p/>If the destination is not specified, then all pipes are removed.
-    * <p/>If the destination is specified, but no pipe is set up for it, then this is a no-op.
-    * @example readable.unpipe([destination])
+  /** This method will remove the hooks set up for a previous stream.pipe() call. <p/>If the destination is not
+    * specified, then all pipes are removed. <p/>If the destination is specified, but no pipe is set up for it, then
+    * this is a no-op.
+    * @example
+    *   readable.unpipe([destination])
     */
   def unpipe(destination: IWritable): Unit = js.native
   def unpipe(): Unit                       = js.native
 
-  /** This is useful in certain cases where a stream is being consumed by a parser, which needs
-    * to "un-consume" some data that it has optimistically pulled out of the source, so that the
-    * stream can be passed on to some other party.
-    * <p/><b>Note</b> that stream.unshift(chunk) cannot be called after the 'end' event has been triggered;
-    * a runtime error will be raised.
-    * <p>If you find that you must often call stream.unshift(chunk) in your programs, consider implementing
-    * a Transform stream instead.
-    * @example readable.unshift(chunk)
+  /** This is useful in certain cases where a stream is being consumed by a parser, which needs to "un-consume" some
+    * data that it has optimistically pulled out of the source, so that the stream can be passed on to some other party.
+    * <p/><b>Note</b> that stream.unshift(chunk) cannot be called after the 'end' event has been triggered; a runtime
+    * error will be raised. <p>If you find that you must often call stream.unshift(chunk) in your programs, consider
+    * implementing a Transform stream instead.
+    * @example
+    *   readable.unshift(chunk)
     */
   def unshift(chunk: String): Unit     = js.native
   def unshift(chunk: Uint8Array): Unit = js.native
 
-  /** Versions of Node.js prior to v0.10 had streams that did not implement the entire Streams API as it is today.
-    * (See Compatibility for more information.)
-    * <p/>If you are using an older Node.js library that emits 'data' events and has a stream.pause() method that is
-    * advisory only, then you can use the wrap() method to create a Readable stream that uses the old stream as its
-    * data source.
-    * <p/>You will very rarely ever need to call this function, but it exists as a convenience for interacting with
-    * old Node.js programs and libraries.
-    * @example readable.wrap(stream)
+  /** Versions of Node.js prior to v0.10 had streams that did not implement the entire Streams API as it is today. (See
+    * Compatibility for more information.) <p/>If you are using an older Node.js library that emits 'data' events and
+    * has a stream.pause() method that is advisory only, then you can use the wrap() method to create a Readable stream
+    * that uses the old stream as its data source. <p/>You will very rarely ever need to call this function, but it
+    * exists as a convenience for interacting with old Node.js programs and libraries.
+    * @example
+    *   readable.wrap(stream)
     */
   def wrap(stream: LegacyStream): Unit = js.native
 }
@@ -255,8 +260,7 @@ trait ReadableOptions extends js.Object {
 @Factory
 trait ReadablePipeOptions extends js.Object {
 
-  /** End the writer when the reader ends.
-    *  Defaults to true.
+  /** End the writer when the reader ends. Defaults to true.
     */
   var end: js.UndefOr[Boolean] = js.undefined
 }
@@ -276,9 +280,9 @@ sealed trait IWritable extends Stream with LegacyStream {
   //      Methods
   /////////////////////////////////////////////////////////////////////////////////
 
-  /** Forces buffering of all writes.
-    * Buffered data will be flushed either at stream.uncork() or at stream.end() call.
-    * @example writable.cork()
+  /** Forces buffering of all writes. Buffered data will be flushed either at stream.uncork() or at stream.end() call.
+    * @example
+    *   writable.cork()
     */
   def cork(): Unit = js.native
 
@@ -297,12 +301,14 @@ sealed trait IWritable extends Stream with LegacyStream {
   def end(): this.type                                                                    = js.native
 
   /** Sets the default encoding for a writable stream.
-    * @example writable.setDefaultEncoding(encoding)
+    * @example
+    *   writable.setDefaultEncoding(encoding)
     */
   def setDefaultEncoding(encoding: String): this.type = js.native
 
   /** Flush all data, buffered since stream.cork() call.
-    * @example writable.uncork()
+    * @example
+    *   writable.uncork()
     */
   def uncork(): Unit = js.native
 
@@ -360,18 +366,16 @@ sealed trait ITransform extends IDuplex
 @Factory
 trait DuplexOptions extends js.Object {
 
-  /** If set to false, then the stream will automatically end the readable side
-    *  when the writable side ends and vice versa (Default: true).
+  /** If set to false, then the stream will automatically end the readable side when the writable side ends and vice
+    * versa (Default: true).
     */
   var allowHalfOpen: js.UndefOr[Boolean] = js.undefined
 
-  /** Sets objectMode for readable side of the stream. Has no effect if objectMode is true
-    *  (Default: false).
+  /** Sets objectMode for readable side of the stream. Has no effect if objectMode is true (Default: false).
     */
   var readableObjectMode: js.UndefOr[Boolean] = js.undefined
 
-  /** Sets objectMode for writable side of the stream. Has no effect if objectMode is true
-    *  (Default: false).
+  /** Sets objectMode for writable side of the stream. Has no effect if objectMode is true (Default: false).
     */
   var writableObjectMode: js.UndefOr[Boolean] = js.undefined
 }

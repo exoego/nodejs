@@ -7,10 +7,11 @@ import io.scalajs.nodejs.events.IEventEmitter
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-/** The child_process module provides the ability to spawn child processes in a manner that is similar,
-  * but not identical, to popen(3). This capability is primarily provided by the child_process.spawn() function.
+/** The child_process module provides the ability to spawn child processes in a manner that is similar, but not
+  * identical, to popen(3). This capability is primarily provided by the child_process.spawn() function.
   *
-  * @see https://nodejs.org/api/child_process.html
+  * @see
+  *   https://nodejs.org/api/child_process.html
   */
 @js.native
 trait ChildProcess extends IEventEmitter {
@@ -45,7 +46,8 @@ trait ForkedChildProcess extends ChildProcess {
   def send(message: js.Any): Boolean                                                                = js.native
 }
 
-/** @see https://nodejs.org/api/child_process.html
+/** @see
+  *   https://nodejs.org/api/child_process.html
   */
 @JSImport("child_process", JSImport.Namespace)
 @js.native

@@ -8,10 +8,11 @@ import scala.scalajs.js.annotation.JSImport
 
 /** To use the HTTP server and client one must require('http').
   *
-  * The HTTP interfaces in Node.js are designed to support many features of the protocol which have been
-  * traditionally difficult to use. In particular, large, possibly chunk-encoded, messages. The interface
-  * is careful to never buffer entire requests or responses--the user is able to stream data.
-  * @see https://nodejs.org/api/http.html
+  * The HTTP interfaces in Node.js are designed to support many features of the protocol which have been traditionally
+  * difficult to use. In particular, large, possibly chunk-encoded, messages. The interface is careful to never buffer
+  * entire requests or responses--the user is able to stream data.
+  * @see
+  *   https://nodejs.org/api/http.html
   */
 @js.native
 trait Http extends js.Object {
@@ -20,7 +21,8 @@ trait Http extends js.Object {
   /////////////////////////////////////////////////////////////////////////////////
 
   /** Global instance of Agent which is used as the default for all http client requests.
-    * @example http.globalAgent
+    * @example
+    *   http.globalAgent
     */
   def globalAgent: Agent = js.native
 
@@ -29,7 +31,8 @@ trait Http extends js.Object {
   val METHODS: js.Array[String] = js.native
 
   /** A collection of all the standard HTTP response status codes, and the short description of each.
-    * @example http.STATUS_CODES[404] === 'Not Found'.
+    * @example
+    *   http.STATUS_CODES[404] === 'Not Found'.
     */
   val STATUS_CODES: StatusCodes = js.native
 

@@ -19,13 +19,15 @@ trait Process extends IEventEmitter {
   def allowedNodeEnvironmentFlags: EnvironmentFlags = js.native
 
   /** What processor architecture you're running on: 'arm', 'ia32', or 'x64'.
-    * @example process.arch
+    * @example
+    *   process.arch
     */
   def arch: String = js.native
 
-  /** An array containing the command line arguments. The first element will be 'node', the second element will be
-    * the name of the JavaScript file. The next elements will be any additional command line arguments.
-    * @example process.argv
+  /** An array containing the command line arguments. The first element will be 'node', the second element will be the
+    * name of the JavaScript file. The next elements will be any additional command line arguments.
+    * @example
+    *   process.argv
     */
   def argv: js.Array[String] = js.native
 
@@ -33,13 +35,14 @@ trait Process extends IEventEmitter {
 
   def channel: js.UndefOr[js.Object] = js.native
 
-  /** An Object containing the JavaScript representation of the configure options that were used to compile
-    * the current Node.js executable.
+  /** An Object containing the JavaScript representation of the configure options that were used to compile the current
+    * Node.js executable.
     */
   def config: ProcessConfig = js.native
 
   /** If process.connected is false, it is no longer possible to send messages
-    * @example process.connected
+    * @example
+    *   process.connected
     */
   def connected: js.UndefOr[Boolean] = js.native
 
@@ -51,32 +54,34 @@ trait Process extends IEventEmitter {
     */
   def env: Environment = js.native
 
-  /** This is the set of Node.js-specific command line options from the executable that started the process.
-    * These options do not show up in process.argv, and do not include the Node.js executable, the name of
-    * the script, or any options following the script name. These options are useful in order to spawn
-    * child processes with the same execution environment as the parent.
+  /** This is the set of Node.js-specific command line options from the executable that started the process. These
+    * options do not show up in process.argv, and do not include the Node.js executable, the name of the script, or any
+    * options following the script name. These options are useful in order to spawn child processes with the same
+    * execution environment as the parent.
     * @since 0.7.7
     */
   def execArgv: js.Array[String] = js.native
 
   /** This is the absolute pathname of the executable that started the process.
-    * @example process.execPath
+    * @example
+    *   process.execPath
     */
   def execPath: String = js.native
 
-  /** A number which will be the process exit code, when the process either exits gracefully, or is exited
-    * via process.exit() without specifying a code.
+  /** A number which will be the process exit code, when the process either exits gracefully, or is exited via
+    * process.exit() without specifying a code.
     *
     * Specifying a code to process.exit(code) will override any previous setting of process.exitCode.
-    * @example process.exitCode
+    * @example
+    *   process.exitCode
     */
   def exitCode: Int = js.native
 
   def features: Features = js.native
 
-  /** Alternate way to retrieve require.main. The difference is that if the main module changes at runtime,
-    * require.main might still refer to the original main module in modules that were required before the
-    * change occurred. Generally it's safe to assume that the two refer to the same module.
+  /** Alternate way to retrieve require.main. The difference is that if the main module changes at runtime, require.main
+    * might still refer to the original main module in modules that were required before the change occurred. Generally
+    * it's safe to assume that the two refer to the same module.
     *
     * As with require.main, it will be undefined if there was no entry script.
     */
@@ -89,7 +94,8 @@ trait Process extends IEventEmitter {
   def noDeprecation: js.UndefOr[Boolean] = js.native
 
   /** The PID of the process.
-    * @example process.pid
+    * @example
+    *   process.pid
     */
   def pid: Int = js.native
 
@@ -99,8 +105,8 @@ trait Process extends IEventEmitter {
     */
   def platform: String = js.native
 
-  /** An Object containing metadata related to the current release, including URLs for the source tarball
-    * and headers-only tarball.
+  /** An Object containing metadata related to the current release, including URLs for the source tarball and
+    * headers-only tarball.
     * @since 3.0.0
     */
   def release: ReleaseInfo = js.native
@@ -111,10 +117,10 @@ trait Process extends IEventEmitter {
   @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs12)
   def resourceUsage(): ResourceUsage = js.native
 
-  /** process.stderr and process.stdout are unlike other streams in Node.js in that they cannot be
-    * closed (end() will throw), they never emit the finish event and that writes can block when output
-    * is redirected to a file (although disks are fast and operating systems normally employ write-back
-    * caching so it should be a very rare occurrence indeed.)
+  /** process.stderr and process.stdout are unlike other streams in Node.js in that they cannot be closed (end() will
+    * throw), they never emit the finish event and that writes can block when output is redirected to a file (although
+    * disks are fast and operating systems normally employ write-back caching so it should be a very rare occurrence
+    * indeed.)
     */
   def stderr: WriteStream = js.native
 
@@ -122,19 +128,17 @@ trait Process extends IEventEmitter {
     */
   def stdin: ReadStream = js.native
 
-  /** process.stderr and process.stdout are unlike other streams in Node.js in that they cannot be
-    * closed (end() will throw), they never emit the finish event and that writes can block when output
-    * is redirected to a file (although disks are fast and operating systems normally employ write-back
-    * caching so it should be a very rare occurrence indeed.)
+  /** process.stderr and process.stdout are unlike other streams in Node.js in that they cannot be closed (end() will
+    * throw), they never emit the finish event and that writes can block when output is redirected to a file (although
+    * disks are fast and operating systems normally employ write-back caching so it should be a very rare occurrence
+    * indeed.)
     */
   def stdout: WriteStream = js.native
 
-  /** Getter/setter to set what is displayed in ps.
-    * When used as a setter, the maximum length is platform-specific and probably short.
-    * On Linux and OS X, it's limited to the size of the binary name plus the length of the command line
-    * arguments because it overwrites the argv memory.
-    * v0.8 allowed for longer process title strings by also overwriting the environ memory but that was
-    * potentially insecure/confusing in some (rather obscure) cases.
+  /** Getter/setter to set what is displayed in ps. When used as a setter, the maximum length is platform-specific and
+    * probably short. On Linux and OS X, it's limited to the size of the binary name plus the length of the command line
+    * arguments because it overwrites the argv memory. v0.8 allowed for longer process title strings by also overwriting
+    * the environ memory but that was potentially insecure/confusing in some (rather obscure) cases.
     */
   var title: String = js.native
 
@@ -155,12 +159,14 @@ trait Process extends IEventEmitter {
   /////////////////////////////////////////////////////////////////////////////////
 
   /** This causes Node.js to emit an abort. This will cause Node.js to exit and generate a core file.
-    * @example process.abort()
+    * @example
+    *   process.abort()
     */
   def abort(): Unit = js.native
 
   /** Changes the current working directory of the process or throws an exception if that fails.
-    * @example process.chdir(directory)
+    * @example
+    *   process.chdir(directory)
     */
   def chdir(directory: String): Unit = js.native
 
@@ -168,16 +174,18 @@ trait Process extends IEventEmitter {
   def cpuUsage(): CpuUsage                        = js.native
 
   /** Returns the current working directory of the process.
-    * @example process.cwd()
+    * @example
+    *   process.cwd()
     */
   def cwd(): String = js.native
 
-  /** Close the IPC channel to the parent process, allowing this child to exit gracefully once there are no
-    * other connections keeping it alive.
+  /** Close the IPC channel to the parent process, allowing this child to exit gracefully once there are no other
+    * connections keeping it alive.
     *
-    * Identical to the parent process's ChildProcess.disconnect().
-    * If Node.js was not spawned with an IPC channel, process.disconnect() will be undefined.
-    * @example process.disconnect()
+    * Identical to the parent process's ChildProcess.disconnect(). If Node.js was not spawned with an IPC channel,
+    * process.disconnect() will be undefined.
+    * @example
+    *   process.disconnect()
     */
   def disconnect(): js.Any = js.native
 
@@ -195,51 +203,59 @@ trait Process extends IEventEmitter {
   def emitWarning(warning: String): Unit                                                  = js.native
 
   /** Ends the process with the specified code. If omitted, exit uses the 'success' code 0.
-    * @example process.exit([code])
+    * @example
+    *   process.exit([code])
     */
   def exit(code: Int): Unit = js.native
   def exit(): Unit          = js.native
 
   /** Gets the effective group identity of the process. This is the numerical group id, not the group name.
     * <p/><b>Note</b>: this function is only available on POSIX platforms (i.e. not Windows, Android)
-    * @example process.getegid()
+    * @example
+    *   process.getegid()
     */
   def getegid(): Int = js.native
 
-  /** Gets the effective user identity of the process. This is the numerical userid, not the username.
-    * <p/><b>Note</b>: this function is only available on POSIX platforms (i.e. not Windows, Android)
-    * @example process.geteuid()
+  /** Gets the effective user identity of the process. This is the numerical userid, not the username. <p/><b>Note</b>:
+    * this function is only available on POSIX platforms (i.e. not Windows, Android)
+    * @example
+    *   process.geteuid()
     */
   def geteuid(): Int = js.native
 
-  /** Gets the group identity of the process. This is the numerical group id, not the group name.
-    * <p/><b>Note</b>: this function is only available on POSIX platforms (i.e. not Windows, Android)
-    * @example process.getgid()
+  /** Gets the group identity of the process. This is the numerical group id, not the group name. <p/><b>Note</b>: this
+    * function is only available on POSIX platforms (i.e. not Windows, Android)
+    * @example
+    *   process.getgid()
     */
   def getgid(): Int = js.native
 
-  /** Returns an array with the supplementary group IDs. POSIX leaves it unspecified if the effective
-    * group ID is included but Node.js ensures it always is.
-    * @example process.getgroups()
+  /** Returns an array with the supplementary group IDs. POSIX leaves it unspecified if the effective group ID is
+    * included but Node.js ensures it always is.
+    * @example
+    *   process.getgroups()
     */
   def getgroups(): js.Array[Int] = js.native
 
   /** Gets the user identity of the process. (See getuid(2).) This is the numerical userid, not the username.
     * <p/><b>Note</b>: this function is only available on POSIX platforms (i.e. not Windows, Android)
-    * @example process.getuid()
+    * @example
+    *   process.getuid()
     */
   def getuid(): Int = js.native
 
   /** Returns the current high-resolution real time in a [seconds, nanoseconds] tuple Array. It is relative to an
-    * arbitrary time in the past. It is not related to the time of day and therefore not subject to clock drift.
-    * The primary use is for measuring performance between intervals.
-    * @example process.hrtime([time])
+    * arbitrary time in the past. It is not related to the time of day and therefore not subject to clock drift. The
+    * primary use is for measuring performance between intervals.
+    * @example
+    *   process.hrtime([time])
     */
   val hrtime: HrTime = js.native
 
-  /** Reads /etc/group and initializes the group access list, using all groups of which the user is a member.
-    * This is a privileged operation, meaning you need to be root or have the CAP_SETGID capability.
-    * @example process.initgroups(user, extra_group)
+  /** Reads /etc/group and initializes the group access list, using all groups of which the user is a member. This is a
+    * privileged operation, meaning you need to be root or have the CAP_SETGID capability.
+    * @example
+    *   process.initgroups(user, extra_group)
     */
   def initgroups(user: String, extra_group: String): js.Array[Int] = js.native
   def initgroups(user: String, extra_group: Int): js.Array[Int]    = js.native
@@ -248,40 +264,44 @@ trait Process extends IEventEmitter {
 
   def hasUncaughtExceptionCaptureCallback(): Boolean = js.native
 
-  /** Send a signal to a process. pid is the process id and signal is the string describing the signal to send.
-    * Signal names are strings like SIGINT or SIGHUP. If omitted, the signal will be SIGTERM. See Signal Events
-    * and kill(2) for more information.
+  /** Send a signal to a process. pid is the process id and signal is the string describing the signal to send. Signal
+    * names are strings like SIGINT or SIGHUP. If omitted, the signal will be SIGTERM. See Signal Events and kill(2) for
+    * more information.
     *
-    * Will throw an error if target does not exist, and as a special case, a signal of 0 can be used to test for
-    * the existence of a process. Windows platforms will throw an error if the pid is used to kill a process group.
+    * Will throw an error if target does not exist, and as a special case, a signal of 0 can be used to test for the
+    * existence of a process. Windows platforms will throw an error if the pid is used to kill a process group.
     *
     * <p/><b>Note</b> that even though the name of this function is process.kill, it is really just a signal sender,
     * like the kill system call. The signal sent may do something other than kill the target process.
-    * @example process.kill(pid[, signal])
+    * @example
+    *   process.kill(pid[, signal])
     */
   def kill(pid: Int, signal: String): Unit = js.native
   def kill(pid: Int, signal: Int): Unit    = js.native
   def kill(pid: Int): Unit                 = js.native
 
   /** Returns an object describing the memory usage of the Node.js process measured in bytes.
-    * @example process.memoryUsage()
+    * @example
+    *   process.memoryUsage()
     */
   def memoryUsage(): MemoryUsage = js.native
 
   /** Once the current event loop turn runs to completion, call the callback function.
     *
-    * This is not a simple alias to setTimeout(fn, 0), it's much more efficient. It runs before any
-    * additional I/O events (including timers) fire in subsequent ticks of the event loop.
-    * @example process.nextTick(callback[, arg][, ...])
+    * This is not a simple alias to setTimeout(fn, 0), it's much more efficient. It runs before any additional I/O
+    * events (including timers) fire in subsequent ticks of the event loop.
+    * @example
+    *   process.nextTick(callback[, arg][, ...])
     */
   def nextTick(callback: js.Function0[Any], args: js.Any*): Unit = js.native
 
-  /** When Node.js is spawned with an IPC channel attached, it can send messages to its parent process
-    * using process.send(). Each will be received as a 'message' event on the parent's ChildProcess object.
+  /** When Node.js is spawned with an IPC channel attached, it can send messages to its parent process using
+    * process.send(). Each will be received as a 'message' event on the parent's ChildProcess object.
     *
-    * <p/><b>Note</b>: this function uses JSON.stringify() internally to serialize the message.
-    * If Node.js was not spawned with an IPC channel, process.send() will be undefined.
-    * @example {{{ process.send(message[, sendHandle[, options]][, callback]) }}}
+    * <p/><b>Note</b>: this function uses JSON.stringify() internally to serialize the message. If Node.js was not
+    * spawned with an IPC channel, process.send() will be undefined.
+    * @example
+    *   {{{process.send(message[, sendHandle[, options]][, callback])}}}
     * @since 0.5.9
     */
   def send(message: js.Any, sendHandle: SendHandle, options: TransferOptions, callback: js.Function): Boolean =
@@ -292,37 +312,42 @@ trait Process extends IEventEmitter {
   def send(message: js.Any, callback: js.Function): Boolean                            = js.native
   def send(message: js.Any): Boolean                                                   = js.native
 
-  /** Sets the effective group identity of the process. This accepts either a numerical ID or a groupname string.
-    * If a groupname is specified, this method blocks while resolving it to a numerical ID.
-    * @example process.setegid(id)
+  /** Sets the effective group identity of the process. This accepts either a numerical ID or a groupname string. If a
+    * groupname is specified, this method blocks while resolving it to a numerical ID.
+    * @example
+    *   process.setegid(id)
     * @since 2.0.0
     */
   def setegid(id: String): Unit = js.native
   def setegid(id: Int): Unit    = js.native
 
-  /** Sets the effective user identity of the process. This accepts either a numerical ID or a username string.
-    * If a username is specified, this method blocks while resolving it to a numerical ID.
-    * @example process.seteuid(id)
+  /** Sets the effective user identity of the process. This accepts either a numerical ID or a username string. If a
+    * username is specified, this method blocks while resolving it to a numerical ID.
+    * @example
+    *   process.seteuid(id)
     */
   def seteuid(id: String): Unit = js.native
   def seteuid(id: Int): Unit    = js.native
 
-  /** Sets the group identity of the process. This accepts either a numerical ID or a groupname string.
-    * If a groupname is specified, this method blocks while resolving it to a numerical ID.
-    * @example process.setgid(id)
+  /** Sets the group identity of the process. This accepts either a numerical ID or a groupname string. If a groupname
+    * is specified, this method blocks while resolving it to a numerical ID.
+    * @example
+    *   process.setgid(id)
     */
   def setgid(id: String): Unit = js.native
   def setgid(id: Int): Unit    = js.native
 
   /** Sets the supplementary group IDs. This is a privileged operation, meaning you need to be root or have the
     * CAP_SETGID capability. The list can contain group IDs, group names or both.
-    * @example process.setgroups(groups)
+    * @example
+    *   process.setgroups(groups)
     */
   def setgroups(groups: js.Array[Int]): Unit = js.native
 
-  /** Sets the user identity of the process. This accepts either a numerical ID or a username string.
-    * If a username is specified, this method blocks while resolving it to a numerical ID.
-    * @example process.setuid(id)
+  /** Sets the user identity of the process. This accepts either a numerical ID or a username string. If a username is
+    * specified, this method blocks while resolving it to a numerical ID.
+    * @example
+    *   process.setuid(id)
     */
   def setuid(id: String): Unit = js.native
   def setuid(id: Int): Unit    = js.native
@@ -332,19 +357,22 @@ trait Process extends IEventEmitter {
 
   /** Sets or reads the process's file mode creation mask. Child processes inherit the mask from the parent process.
     * Returns the old mask if mask argument is given, otherwise returns the current mask.
-    * @example process.umask([mask])
+    * @example
+    *   process.umask([mask])
     */
   def umask(mask: Int): Int = js.native
 
   /** Sets or reads the process's file mode creation mask. Child processes inherit the mask from the parent process.
     * Returns the old mask if mask argument is given, otherwise returns the current mask.
-    * @example process.umask([mask])
+    * @example
+    *   process.umask([mask])
     */
   @deprecated("DEP0139: Use umask(mask) instead.", "Node.js v12.19.0")
   def umask(): Int = js.native
 
   /** Number of seconds Node.js has been running.
-    * @example process.uptime()
+    * @example
+    *   process.uptime()
     */
   def uptime(): Int = js.native
 }

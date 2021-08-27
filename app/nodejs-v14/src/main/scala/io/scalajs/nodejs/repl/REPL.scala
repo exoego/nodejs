@@ -7,9 +7,10 @@ import net.exoego.scalajs.types.util.Factory
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
-/** The repl module provides a Read-Eval-Print-Loop (REPL) implementation that is available
-  * both as a standalone program or includable in other applications.
-  * @see https://nodejs.org/api/repl.html#repl_repl
+/** The repl module provides a Read-Eval-Print-Loop (REPL) implementation that is available both as a standalone program
+  * or includable in other applications.
+  * @see
+  *   https://nodejs.org/api/repl.html#repl_repl
   */
 @js.native
 trait REPL extends js.Object {

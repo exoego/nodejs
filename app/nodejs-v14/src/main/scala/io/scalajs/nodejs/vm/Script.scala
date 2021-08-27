@@ -21,18 +21,24 @@ class Script protected () extends js.Object {
 
   /** Runs the compiled code contained by the vm.Script object within the given contextifiedSandbox and returns the
     * result. Running code does not have access to local scope.
-    * @param contextifiedSandbox A contextified object as returned by the vm.createContext() method.
-    * @param options             the optional options
-    * @example script.runInContext(contextifiedSandbox[, options])
+    * @param contextifiedSandbox
+    *   A contextified object as returned by the vm.createContext() method.
+    * @param options
+    *   the optional options
+    * @example
+    *   script.runInContext(contextifiedSandbox[, options])
     */
   def runInContext(contextifiedSandbox: Context, options: RunInContextOptions): js.Any = js.native
   def runInContext(contextifiedSandbox: Context): js.Any                               = js.native
 
   /** First contextifies the given sandbox, runs the compiled code contained by the vm.Script object within the created
     * sandbox, and returns the result. Running code does not have access to local scope.
-    * @param sandbox An object that will be contextified. If undefined, a new object will be created.
-    * @param options the optional options
-    * @example script.runInNewContext([sandbox][, options])
+    * @param sandbox
+    *   An object that will be contextified. If undefined, a new object will be created.
+    * @param options
+    *   the optional options
+    * @example
+    *   script.runInNewContext([sandbox][, options])
     */
   def runInNewContext(sandbox: js.Object, options: RunInNewContextOptions): js.Any = js.native
   def runInNewContext(sandbox: js.Object): js.Any                                  = js.native
@@ -40,8 +46,10 @@ class Script protected () extends js.Object {
 
   /** Runs the compiled code contained by the vm.Script within the context of the current global object. Running code
     * does not have access to local scope, but does have access to the current global object.
-    * @param options the optional options
-    * @example script.runInThisContext([options])
+    * @param options
+    *   the optional options
+    * @example
+    *   script.runInThisContext([options])
     */
   def runInThisContext(options: RunInContextOptions): Script = js.native
   def runInThisContext(): Script                             = js.native

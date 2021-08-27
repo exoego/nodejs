@@ -8,9 +8,8 @@ import scala.scalajs.js
 
 /** The Sign Class is a utility for generating signatures. It can be used in one of two ways:
   *
-  * <li>As a writable stream, where data to be signed is written and the sign.sign() method is used to generate and return
-  * the signature, or</li>
-  * <li>Using the sign.update() and sign.sign() methods to produce the signature.</li>
+  * <li>As a writable stream, where data to be signed is written and the sign.sign() method is used to generate and
+  * return the signature, or</li> <li>Using the sign.update() and sign.sign() methods to produce the signature.</li>
   *
   * The crypto.createSign() method is used to create Sign instances. Sign objects are not to be created directly using
   * the new keyword.

@@ -26,9 +26,8 @@ trait ClusterSettings extends js.Object {
   /** <Boolean> whether or not to send output to parent's stdio. (Default=false) */
   var silent: Boolean = js.native
 
-  /** Specify the kind of serialization used for sending messages between processes.
-    * Possible values are 'json' and 'advanced'. See Advanced Serialization for more details.
-    * Default: 'json'.
+  /** Specify the kind of serialization used for sending messages between processes. Possible values are 'json' and
+    * 'advanced'. See Advanced Serialization for more details. Default: 'json'.
     *
     * From Node.js v13.2.0, v12.16.0.
     */
