@@ -11,18 +11,16 @@ trait UrlFormatOptions extends js.Object {
     */
   var auth: js.UndefOr[Boolean] = js.undefined
 
-  /** true if the serialized URL string should include the fragment, false otherwise.
-    * Defaults to true.
+  /** true if the serialized URL string should include the fragment, false otherwise. Defaults to true.
     */
   var fragment: js.UndefOr[Boolean] = js.undefined
 
-  /** true if the serialized URL string should include the search query, false otherwise.
-    * Defaults to true.
+  /** true if the serialized URL string should include the search query, false otherwise. Defaults to true.
     */
   var search: js.UndefOr[Boolean] = js.undefined
 
-  /** true if Unicode characters appearing in the host component of the URL string should be encoded
-    * directly as opposed to being Punycode encoded. Defaults to false.
+  /** true if Unicode characters appearing in the host component of the URL string should be encoded directly as opposed
+    * to being Punycode encoded. Defaults to false.
     */
   var unicode: js.UndefOr[Boolean] = js.undefined
 }

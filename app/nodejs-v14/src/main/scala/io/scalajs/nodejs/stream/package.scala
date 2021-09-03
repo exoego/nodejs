@@ -59,9 +59,9 @@ package object stream {
     @inline
     def onError(listener: Error => Any): R = readable.on("error", listener)
 
-    /** When a chunk of data can be read from the stream, it will emit a 'readable' event. In some cases, listening
-      * for a 'readable' event will cause some data to be read into the internal buffer from the underlying system,
-      * if it hadn't already.
+    /** When a chunk of data can be read from the stream, it will emit a 'readable' event. In some cases, listening for
+      * a 'readable' event will cause some data to be read into the internal buffer from the underlying system, if it
+      * hadn't already.
       */
     @inline
     def onReadable(listener: () => Any): R = readable.on("readable", listener)
@@ -128,8 +128,8 @@ package object stream {
     @inline
     def onClose(listener: () => Any): W = writable.on("close", listener)
 
-    /** If a stream.write(chunk) call returns false, then the 'drain' event will indicate when it is appropriate
-      * to begin writing more data to the stream.
+    /** If a stream.write(chunk) call returns false, then the 'drain' event will indicate when it is appropriate to
+      * begin writing more data to the stream.
       */
     @inline
     def onDrain(listener: () => Any): W = writable.on("drain", listener)
@@ -139,20 +139,20 @@ package object stream {
     @inline
     def onError(listener: Error => Any): W = writable.on("error", listener)
 
-    /** When the stream.end() method has been called, and all data has been flushed to the underlying system,
-      * this event is emitted.
+    /** When the stream.end() method has been called, and all data has been flushed to the underlying system, this event
+      * is emitted.
       */
     @inline
     def onFinish(listener: () => Any): W = writable.on("finish", listener)
 
-    /** This is emitted whenever the stream.pipe() method is called on a readable stream, adding this writable to
-      * its set of destinations.
+    /** This is emitted whenever the stream.pipe() method is called on a readable stream, adding this writable to its
+      * set of destinations.
       */
     @inline
     def onPipe[R <: IReadable](listener: R => Any): W = writable.on("pipe", listener)
 
-    /** This is emitted whenever the stream.unpipe() method is called on a readable stream, removing this writable
-      * from its set of destinations.
+    /** This is emitted whenever the stream.unpipe() method is called on a readable stream, removing this writable from
+      * its set of destinations.
       */
     @inline
     def onUnpipe[R <: IReadable](listener: R => Any): W = writable.on("unpipe", listener)

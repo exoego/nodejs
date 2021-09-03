@@ -21,8 +21,9 @@ class Socket() extends stream.Duplex with HasHandle {
     * wire when it is possible. (Internally it is polling on the socket's file descriptor for being writable).
     *
     * The consequence of this internal buffering is that memory may grow. This property shows the number of characters
-    * currently buffered to be written. (Number of characters is approximately equal to the number of bytes to be written,
-    * but the buffer may contain strings, and the strings are lazily encoded, so the exact number of bytes is not known.)
+    * currently buffered to be written. (Number of characters is approximately equal to the number of bytes to be
+    * written, but the buffer may contain strings, and the strings are lazily encoded, so the exact number of bytes is
+    * not known.)
     *
     * Users who experience large or growing bufferSize should attempt to "throttle" the data flows in their program with
     * pause() and resume().
@@ -54,8 +55,8 @@ class Socket() extends stream.Duplex with HasHandle {
   @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs12)
   def pending: Boolean = js.native
 
-  /** The string representation of the remote IP address. For example, '74.125.127.100' or '2001:4860:a005::68'.
-    * Value may be undefined if the socket is destroyed (for example, if the client disconnected).
+  /** The string representation of the remote IP address. For example, '74.125.127.100' or '2001:4860:a005::68'. Value
+    * may be undefined if the socket is destroyed (for example, if the client disconnected).
     */
   def remoteAddress: js.UndefOr[String] = js.native
 
@@ -68,38 +69,36 @@ class Socket() extends stream.Duplex with HasHandle {
   def remotePort: Int = js.native
 
   /** Returns the bound address, the address family name and port of the socket as reported by the operating system.
-    * @return an object with three properties, e.g. { port: 12346, family: 'IPv4', address: '127.0.0.1' }
+    * @return
+    *   an object with three properties, e.g. { port: 12346, family: 'IPv4', address: '127.0.0.1' }
     */
   def address(): Address = js.native
 
-  /** Opens the connection for a given socket.
-    * For TCP sockets, options argument should be an object which specifies:
-    * <ul>
-    * <li>port: Port the client should connect to (Required).</li>
-    * <li>host: Host the client should connect to. Defaults to 'localhost'.</li>
-    * <li>localAddress: Local interface to bind to for network connections.</li>
-    * <li>localPort: Local port to bind to for network connections.</li>
-    * <li>family : Version of IP stack. Defaults to 4.</li>
-    * <li>hints: dns.lookup() hints. Defaults to 0.</li>
-    * <li>lookup : Custom lookup function. Defaults to dns.lookup.</li>
-    * <lu>
+  /** Opens the connection for a given socket. For TCP sockets, options argument should be an object which specifies:
+    * <ul> <li>port: Port the client should connect to (Required).</li> <li>host: Host the client should connect to.
+    * Defaults to 'localhost'.</li> <li>localAddress: Local interface to bind to for network connections.</li>
+    * <li>localPort: Local port to bind to for network connections.</li> <li>family : Version of IP stack. Defaults to
+    * 4.</li> <li>hints: dns.lookup() hints. Defaults to 0.</li> <li>lookup : Custom lookup function. Defaults to
+    * dns.lookup.</li> <lu>
     *
-    * For local domain sockets, options argument should be an object which specifies:
-    * <ul>
-    * </li>path: Path the client should connect to (Required).</li>
-    * </ul>
+    * For local domain sockets, options argument should be an object which specifies: <ul> </li>path: Path the client
+    * should connect to (Required).</li> </ul>
     *
-    * Normally this method is not needed, as net.createConnection opens the socket. Use this only if you are implementing
-    * a custom Socket.
-    * This function is asynchronous. When the 'connect' event is emitted the socket is established. If there is a problem
-    * connecting, the 'connect' event will not be emitted, the 'error' event will be emitted with the exception.
-    * The connectListener parameter will be added as a listener for the 'connect' event.
-    * @example socket.connect(path[, connectListener])
-    * @example socket.connect(port[, host][, connectListener])
-    *          As socket.connect(options[, connectListener]), with options either as either {port: port, host: host} or {path: path}.
-    * @param options         the given socket options
-    * @param connectListener the optional connect listener
-    * @example socket.connect(options[, connectListener])
+    * Normally this method is not needed, as net.createConnection opens the socket. Use this only if you are
+    * implementing a custom Socket. This function is asynchronous. When the 'connect' event is emitted the socket is
+    * established. If there is a problem connecting, the 'connect' event will not be emitted, the 'error' event will be
+    * emitted with the exception. The connectListener parameter will be added as a listener for the 'connect' event.
+    * @example
+    *   socket.connect(path[, connectListener])
+    * @example
+    *   socket.connect(port[, host][, connectListener]) As socket.connect(options[, connectListener]), with options
+    *   either as either {port: port, host: host} or {path: path}.
+    * @param options
+    *   the given socket options
+    * @param connectListener
+    *   the optional connect listener
+    * @example
+    *   socket.connect(options[, connectListener])
     */
   def connect(options: ConnectOptions, connectListener: js.Function): Unit = js.native
   def connect(options: ConnectOptions): Unit                               = js.native
@@ -114,7 +113,8 @@ class Socket() extends stream.Duplex with HasHandle {
 
   /** Opposite of unref, calling ref on a previously unrefd socket will not let the program exit if it's the only socket
     * left (the default behavior). If the socket is refd calling ref again will have no effect.
-    * @return socket
+    * @return
+    *   socket
     */
   def ref(): this.type = js.native
 
@@ -122,9 +122,12 @@ class Socket() extends stream.Duplex with HasHandle {
     * sent on an idle socket. enable defaults to false.
     *
     * Set initialDelay (in milliseconds) to set the delay between the last data packet received and the first keepalive
-    * probe. Setting 0 for initialDelay will leave the value unchanged from the default (or previous) setting. Defaults to 0.
-    * @return socket
-    * @example socket.setKeepAlive([enable][, initialDelay])
+    * probe. Setting 0 for initialDelay will leave the value unchanged from the default (or previous) setting. Defaults
+    * to 0.
+    * @return
+    *   socket
+    * @example
+    *   socket.setKeepAlive([enable][, initialDelay])
     */
   def setKeepAlive(enable: Boolean, initialDelay: Int): this.type = js.native
   def setKeepAlive(enable: Boolean): this.type                    = js.native
@@ -134,26 +137,30 @@ class Socket() extends stream.Duplex with HasHandle {
   /** Disables the Nagle algorithm. By default TCP connections use the Nagle algorithm, they buffer data before sending
     * it off. Setting true for noDelay will immediately fire off data each time socket.write() is called. noDelay
     * defaults to true.
-    * @return socket
-    * @example socket.setNoDelay([noDelay])
+    * @return
+    *   socket
+    * @example
+    *   socket.setNoDelay([noDelay])
     */
   def setNoDelay(noDelay: Boolean): this.type = js.native
   def setNoDelay(): this.type                 = js.native
 
-  /** Sets the socket to timeout after timeout milliseconds of inactivity on the socket. By default net.Socket do not have a timeout.
-    * When an idle timeout is triggered the socket will receive a 'timeout' event but the connection will not be severed.
-    * The user must manually end() or destroy() the socket.
-    * If timeout is 0, then the existing idle timeout is disabled.
-    * The optional callback parameter will be added as a one time listener for the 'timeout' event.
-    * @return socket.
-    * @example socket.setTimeout(timeout[, callback])
+  /** Sets the socket to timeout after timeout milliseconds of inactivity on the socket. By default net.Socket do not
+    * have a timeout. When an idle timeout is triggered the socket will receive a 'timeout' event but the connection
+    * will not be severed. The user must manually end() or destroy() the socket. If timeout is 0, then the existing idle
+    * timeout is disabled. The optional callback parameter will be added as a one time listener for the 'timeout' event.
+    * @return
+    *   socket.
+    * @example
+    *   socket.setTimeout(timeout[, callback])
     */
   def setTimeout(timeout: Int, callback: js.Function): this.type = js.native
   def setTimeout(timeout: Int): this.type                        = js.native
 
-  /** Calling unref on a socket will allow the program to exit if this is the only active socket in the event system.
-    * If the socket is already unrefd calling unref again will have no effect.
-    * @return socket.
+  /** Calling unref on a socket will allow the program to exit if this is the only active socket in the event system. If
+    * the socket is already unrefd calling unref again will have no effect.
+    * @return
+    *   socket.
     */
   def unref(): this.type = js.native
 

@@ -13,8 +13,8 @@ trait FSConstants extends js.Object {
   //      The following constants are meant for use with fs.access().
   /////////////////////////////////////////////////////////////////////////////////                         `
 
-  /** File is visible to the calling process. This is useful for determining if a file exists, but says
-    * nothing about rwx permissions. Default if no mode is specified.
+  /** File is visible to the calling process. This is useful for determining if a file exists, but says nothing about
+    * rwx permissions. Default if no mode is specified.
     */
   val F_OK: FileMode = js.native
 

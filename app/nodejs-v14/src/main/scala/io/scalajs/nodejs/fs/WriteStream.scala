@@ -8,7 +8,8 @@ import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
 /** fs.WriteStream - WriteStream is a Writable Stream.
-  * @see https://nodejs.org/api/fs.html#fs_class_fs_writestream
+  * @see
+  *   https://nodejs.org/api/fs.html#fs_class_fs_writestream
   */
 @js.native
 @JSImport("fs", "WriteStream")
@@ -21,8 +22,8 @@ class WriteStream(path: Path) extends stream.Writable {
     */
   def bytesWritten: Double = js.native
 
-  /** The path to the file the stream is writing to as specified in the first argument to fs.createWriteStream().
-    * If path is passed as a string, then writeStream.path will be a string. If path is passed as a Buffer, then
+  /** The path to the file the stream is writing to as specified in the first argument to fs.createWriteStream(). If
+    * path is passed as a string, then writeStream.path will be a string. If path is passed as a Buffer, then
     * writeStream.path will be a Buffer.
     */
   def path: Buffer | String = js.native
@@ -32,7 +33,8 @@ class WriteStream(path: Path) extends stream.Writable {
   /////////////////////////////////////////////////////////////////////////////////
 
   /** Undocumented method
-    * @see https://github.com/nodejs/node-v0.x-archive/blob/cfcb1de130867197cbc9c6012b7e84e08e53d032/lib/fs.js#L1597-L1620
+    * @see
+    *   https://github.com/nodejs/node-v0.x-archive/blob/cfcb1de130867197cbc9c6012b7e84e08e53d032/lib/fs.js#L1597-L1620
     */
   def close(callback: js.Function1[Unit, Any]): Unit = js.native
 }

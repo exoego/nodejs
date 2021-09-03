@@ -13,7 +13,8 @@ import scala.scalajs.js
 trait FSWatcher extends IEventEmitter {
 
   /** Stop watching for changes on the given fs.FSWatcher.
-    * @example watcher.close()
+    * @example
+    *   watcher.close()
     * @since 0.5.8
     */
   def close(): Unit = js.native
@@ -45,8 +46,8 @@ trait FSWatcherOptions extends js.Object {
   /** Indicates whether the process should continue to run as long as files are being watched (default: true) */
   var persistent: js.UndefOr[Boolean] = js.undefined
 
-  /** Indicates whether all subdirectories should be watched, or only the current directory.
-    * The applies when a directory is specified, and only on supported platforms (See Caveats) (default: false)
+  /** Indicates whether all subdirectories should be watched, or only the current directory. The applies when a
+    * directory is specified, and only on supported platforms (See Caveats) (default: false)
     */
   var recursive: js.UndefOr[Boolean] = js.undefined
 }

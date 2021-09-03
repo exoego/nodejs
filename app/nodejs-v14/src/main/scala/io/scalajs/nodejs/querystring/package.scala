@@ -7,7 +7,8 @@ import scala.scalajs.js
 package object querystring {
 
   /** Query String Enrichment
-    * @param qs the given [[QueryString]]
+    * @param qs
+    *   the given [[QueryString]]
     */
   implicit final class QueryStringEnrichment(private val qs: QueryString) extends AnyVal {
     @inline

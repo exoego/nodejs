@@ -16,15 +16,15 @@ trait CompressionOptions extends js.Object {
 
   var windowBits: js.UndefOr[Int] = js.undefined
 
-  /**  (compression only)
+  /** (compression only)
     */
   var level: js.UndefOr[CompressionLevel] = js.undefined
 
-  /**  (compression only)
+  /** (compression only)
     */
   var memLevel: js.UndefOr[CompressionLevel] = js.undefined
 
-  /**  (compression only)
+  /** (compression only)
     */
   var strategy: js.UndefOr[CompressionStrategy] = js.undefined
 

@@ -9,9 +9,10 @@ import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 import scala.scalajs.js.|
 
-/** The crypto module provides cryptographic functionality that includes a set of wrappers
-  * for OpenSSL's hash, HMAC, cipher, decipher, sign and verify functions.
-  * @see https://nodejs.org/dist/latest-v7.x/docs/api/crypto.html#crypto_crypto
+/** The crypto module provides cryptographic functionality that includes a set of wrappers for OpenSSL's hash, HMAC,
+  * cipher, decipher, sign and verify functions.
+  * @see
+  *   https://nodejs.org/dist/latest-v7.x/docs/api/crypto.html#crypto_crypto
   */
 @js.native
 trait Crypto extends js.Object {
@@ -19,17 +20,17 @@ trait Crypto extends js.Object {
   //      Properties
   /////////////////////////////////////////////////////////////////////////////////
 
-  /** The default encoding to use for functions that can take either strings or buffers.
-    * The default value is 'buffer', which makes methods default to Buffer objects.
+  /** The default encoding to use for functions that can take either strings or buffers. The default value is 'buffer',
+    * which makes methods default to Buffer objects.
     *
-    * The crypto.DEFAULT_ENCODING mechanism is provided for backwards compatibility with legacy programs that
-    * expect 'binary' to be the default encoding.
+    * The crypto.DEFAULT_ENCODING mechanism is provided for backwards compatibility with legacy programs that expect
+    * 'binary' to be the default encoding.
     */
   @deprecated("New applications should expect the default to be 'buffer'.", "Node.js v10.0")
   val DEFAULT_ENCODING: String = js.native
 
-  /** Property for checking and controlling whether a FIPS compliant crypto provider is currently in use.
-    * Setting to true requires a FIPS build of Node.js.
+  /** Property for checking and controlling whether a FIPS compliant crypto provider is currently in use. Setting to
+    * true requires a FIPS build of Node.js.
     */
   @deprecated("Please use crypto.setFips() and crypto.getFips() instead.", "Node.js v10.0")
   var fips: Boolean = js.native
@@ -39,11 +40,14 @@ trait Crypto extends js.Object {
   /////////////////////////////////////////////////////////////////////////////////
 
   /** Creates and returns a Cipher object that uses the given algorithm and password.
-    * @param algorithm The algorithm is dependent on OpenSSL, examples are 'aes192', etc. On recent OpenSSL releases,
-    *                  openssl list-cipher-algorithms will display the available cipher algorithms.
-    * @param password  The password is used to derive the cipher key and initialization vector (IV). The value must be
-    *                  either a 'binary' encoded string or a Buffer.
-    * @example crypto.createCipher(algorithm, password)
+    * @param algorithm
+    *   The algorithm is dependent on OpenSSL, examples are 'aes192', etc. On recent OpenSSL releases, openssl
+    *   list-cipher-algorithms will display the available cipher algorithms.
+    * @param password
+    *   The password is used to derive the cipher key and initialization vector (IV). The value must be either a
+    *   'binary' encoded string or a Buffer.
+    * @example
+    *   crypto.createCipher(algorithm, password)
     */
   @deprecated("Use crypto.createCipheriv() instead.", "Node.js v10.0") def createCipher(algorithm: String,
                                                                                         password: Buffer
@@ -65,15 +69,17 @@ trait Crypto extends js.Object {
   @enableIf(io.scalajs.nodejs.internal.CompilerSwitches.gteNodeJs12)
   def createCipheriv(algorithm: String, key: KeyObject, iv: BufferLike): Cipher = js.native
 
-  /** Creates and returns a Decipher object that uses the given algorithm and password (key).
-    * The implementation of crypto.createDecipher() derives keys using the OpenSSL function EVP_BytesToKey with the
-    * digest algorithm set to MD5, one iteration, and no salt. The lack of salt allows dictionary attacks as the same
-    * password always creates the same key. The low iteration count and non-cryptographically secure hash algorithm
-    * allow passwords to be tested very rapidly.
+  /** Creates and returns a Decipher object that uses the given algorithm and password (key). The implementation of
+    * crypto.createDecipher() derives keys using the OpenSSL function EVP_BytesToKey with the digest algorithm set to
+    * MD5, one iteration, and no salt. The lack of salt allows dictionary attacks as the same password always creates
+    * the same key. The low iteration count and non-cryptographically secure hash algorithm allow passwords to be tested
+    * very rapidly.
     *
     * In line with OpenSSL's recommendation to use pbkdf2 instead of EVP_BytesToKey it is recommended that developers
-    * derive a key and IV on their own using crypto.pbkdf2() and to use crypto.createDecipheriv() to create the Decipher object.
-    * @example crypto.createDecipher(algorithm, password)
+    * derive a key and IV on their own using crypto.pbkdf2() and to use crypto.createDecipheriv() to create the Decipher
+    * object.
+    * @example
+    *   crypto.createDecipher(algorithm, password)
     */
   @deprecated("Use crypto.createDecipheriv() instead.", "Node.js v10.0") def createDecipher(algorithm: String,
                                                                                             password: Buffer
@@ -111,9 +117,10 @@ trait Crypto extends js.Object {
   /** Creates and returns a Hash object that can be used to generate hash digests using the given algorithm.
     *
     * The algorithm is dependent on the available algorithms supported by the version of OpenSSL on the platform.
-    * Examples are 'sha256', 'sha512', etc. On recent releases of OpenSSL, openssl list-message-digest-algorithms
-    * will display the available digest algorithms.
-    * @param algorithm the given algorithm (e.g. 'sha256', 'sha512')
+    * Examples are 'sha256', 'sha512', etc. On recent releases of OpenSSL, openssl list-message-digest-algorithms will
+    * display the available digest algorithms.
+    * @param algorithm
+    *   the given algorithm (e.g. 'sha256', 'sha512')
     */
   def createHash(algorithm: String, options: CreateHashOptions): Hash = js.native
   def createHash(algorithm: String): Hash                             = js.native
@@ -121,10 +128,12 @@ trait Crypto extends js.Object {
   /** Creates and returns an Hmac object that uses the given algorithm and key.
     *
     * The algorithm is dependent on the available algorithms supported by the version of OpenSSL on the platform.
-    * Examples are 'sha256', 'sha512', etc. On recent releases of OpenSSL, openssl list-message-digest-algorithms
-    * will display the available digest algorithms.
-    * @param algorithm the given algorithm (e.g. 'sha256', 'sha512')
-    * @param key       The key is the HMAC key used to generate the cryptographic HMAC hash.
+    * Examples are 'sha256', 'sha512', etc. On recent releases of OpenSSL, openssl list-message-digest-algorithms will
+    * display the available digest algorithms.
+    * @param algorithm
+    *   the given algorithm (e.g. 'sha256', 'sha512')
+    * @param key
+    *   The key is the HMAC key used to generate the cryptographic HMAC hash.
     */
   def createHmac(algorithm: String, key: String, options: TransformOptions): Hmac     = js.native
   def createHmac(algorithm: String, key: BufferLike, options: TransformOptions): Hmac = js.native
@@ -158,14 +167,16 @@ trait Crypto extends js.Object {
 
   /** Creates and returns a Sign object that uses the given algorithm. On recent OpenSSL releases, openssl
     * list-public-key-algorithms will display the available signing algorithms. One example is 'RSA-SHA256'.
-    * @param algorithm the given algorithm (e.g. 'RSA-SHA256')
+    * @param algorithm
+    *   the given algorithm (e.g. 'RSA-SHA256')
     */
   def createSign(algorithm: String, options: WritableOptions): Sign = js.native
   def createSign(algorithm: String): Sign                           = js.native
 
   /** Creates and returns a Verify object that uses the given algorithm. On recent OpenSSL releases, openssl
     * list-public-key-algorithms will display the available signing algorithms. One example is 'RSA-SHA256'.
-    * @param algorithm the given algorithm (e.g. 'RSA-SHA256')
+    * @param algorithm
+    *   the given algorithm (e.g. 'RSA-SHA256')
     */
   def createVerify(algorithm: String, options: WritableOptions): Verify = js.native
   def createVerify(algorithm: String): Verify                           = js.native
@@ -182,7 +193,8 @@ trait Crypto extends js.Object {
   def generateKeyPairSync(`type`: String, options: GenerateKeyPairOptions): KeyPair = js.native
 
   /** Returns an array with the names of the supported cipher algorithms.
-    * @return the names of the supported cipher algorithms. // ['aes-128-cbc', 'aes-128-ccm', ...]
+    * @return
+    *   the names of the supported cipher algorithms. // ['aes-128-cbc', 'aes-128-ccm', ...]
     */
   def getCiphers(): js.Array[String] = js.native
 

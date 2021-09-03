@@ -58,7 +58,8 @@ package object dns {
   final val RRTYPE_NAPTR: RRType = "NAPTR"
 
   /** DNS Extensions
-    * @param dns the DNS instance
+    * @param dns
+    *   the DNS instance
     */
   implicit final class DNSExtensions(private val dns: DNS) extends AnyVal {
 
@@ -85,8 +86,8 @@ package object dns {
       * If address is not a valid IP address, a TypeError will be thrown. The port will be coerced to a number. If it is
       * not a legal port, a TypeError will be thrown.
       *
-      * The callback has arguments (err, hostname, service). The hostname and service arguments are strings
-      * (e.g. 'localhost' and 'http' respectively).
+      * The callback has arguments (err, hostname, service). The hostname and service arguments are strings (e.g.
+      * 'localhost' and 'http' respectively).
       *
       * On error, err is an Error object, where err.code is the error code.
       */
@@ -95,9 +96,10 @@ package object dns {
       promiseWithError2[DnsError, String, String](dns.lookupService(address, port, _))
     }
 
-    /** Uses the DNS protocol to resolve a hostname (e.g. 'nodejs.org') into an array of the record types specified by rrtype.
-      * On error, err is an Error object, where err.code is one of the error codes listed here.
-      * @param hostname the hostname
+    /** Uses the DNS protocol to resolve a hostname (e.g. 'nodejs.org') into an array of the record types specified by
+      * rrtype. On error, err is an Error object, where err.code is one of the error codes listed here.
+      * @param hostname
+      *   the hostname
       */
     @inline
     def resolveFuture(hostname: String, rrtype: RRType): Future[ResolveResult] = {
@@ -109,10 +111,11 @@ package object dns {
       promiseWithError1[DnsError, js.Array[String]](dns.resolve(hostname, _))
     }
 
-    /** Performs a reverse DNS query that resolves an IPv4 or IPv6 address to an array of hostnames.
-      * The callback function has arguments (err, hostnames), where hostnames is an array of resolved hostnames for the given ip.
-      * On error, err is an Error object, where err.code is one of the DNS error codes.
-      * @param ipAddress the IP Address
+    /** Performs a reverse DNS query that resolves an IPv4 or IPv6 address to an array of hostnames. The callback
+      * function has arguments (err, hostnames), where hostnames is an array of resolved hostnames for the given ip. On
+      * error, err is an Error object, where err.code is one of the DNS error codes.
+      * @param ipAddress
+      *   the IP Address
       */
     @inline
     def reverseFuture(ipAddress: String): Future[js.Array[String]] = {
