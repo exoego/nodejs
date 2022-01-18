@@ -9,6 +9,7 @@ object Dependencies {
   val core = Def.setting(
     Seq(
       scalaReflect.value,
+      "net.exoego" %%% "scalajs-nodejs-markers" % "0.0.2",
       "org.scalatest" %%% "scalatest" % scalatestVersion % "test"
     )
   )
