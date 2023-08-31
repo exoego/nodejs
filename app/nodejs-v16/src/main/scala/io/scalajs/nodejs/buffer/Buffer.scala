@@ -59,8 +59,8 @@ class Buffer protected () extends Uint8Array( /* dummy to trick constructor */ -
     *   The offset within buf at which to end comparison (not inclusive). Ignored when targetStart is undefined.
     *   Default: buf.length
     * @return
-    *   0 is returned if target is the same as buf 1 is returned if target should come before buf when sorted.
-    * -1 is returned if target should come after buf when sorted.
+    *   0 is returned if target is the same as buf 1 is returned if target should come before buf when sorted. -1 is
+    *   returned if target should come after buf when sorted.
     * @see
     *   [[https://nodejs.org/api/buffer.html#buffer_buf_compare_target_targetstart_targetend_sourcestart_sourceend]]
     */
