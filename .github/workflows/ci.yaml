@@ -9,7 +9,7 @@ jobs:
         scala: [2.13.8, 2.12.16]
         nodejs: [16.16.0, 14.20.0, 12.22.12]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: olafurpg/setup-scala@v14
         with:
           java-version: adopt@1.11

@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: olafurpg/setup-scala@v14
       - name: Check Scalafmt/Scaladoc
         run: sbt scalafmtSbtCheck scalafmtCheck test:scalafmtCheck nodejs_v14/doc core/doc
