@@ -9,7 +9,7 @@ trait Environment extends js.Object {
   def PATH: String = js.native
 
   // unix-like
-  def `_` : js.UndefOr[String]            = js.native
+  def `_`: js.UndefOr[String]             = js.native
   def HOME: js.UndefOr[String]            = js.native
   def PWD: js.UndefOr[String]             = js.native
   def LD_LIBRARY_PATH: js.UndefOr[String] = js.native
