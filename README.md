@@ -1,3 +1,8 @@
+# Deprecated
+
+> [!WARNING]
+> Use [ScalablyTyped](https://scalablytyped.org/docs/readme.html) instead 🙇
+
 # scala-js-nodejs
 
 Scala.js type facades for Node.js v10, v12, v14 and v16.
